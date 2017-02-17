@@ -1,0 +1,73 @@
+<!-- template for the dkw_footer -->
+<div ng-if="$ctrl.parent.view.isMobile" class="dkw-footer">
+	<div class="mobile-row">
+			<a ui-sref="app">About Us</a>
+			<a ui-sref="app">Contract Vehicles</a>
+			<a ui-sref="app.solutions.netCentricSolutions">Solutions</a>
+	</div>
+	<div class="mobile-row">
+		<div layout="column">
+			<a ui-sref="app">Address: 2001 L Street N.W. DC, Suite 800</a>
+			<a ui-sref="app">Phone: (202) 355-7400</a>
+			<a ui-sref="app">Fax: (202) 296-8215</a>
+		</div>
+	</div>
+	<div class="mobile-row">
+			<i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+			<i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+			<i class="fa fa-youtube fa-2x" aria-hidden="true"></i>
+			<i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
+	</div>
+	<div class="footer-footer" style="text-align: center">
+		DKW COMMUNICATIONS, INC. © COPYRIGHT 2014 | WEBSITE DEVELOPED BY DJW Productions.
+	</div>
+</div>
+<div ng-if="!$ctrl.parent.view.isMobile" class="dkw-footer">
+	<div layout="row" class="center">
+	   <div layout="column" class="col">
+		   <h5>Quick Links</h5>
+			<a ui-sref="app">Home</a>
+			<a ui-sref="app">About Us</a>
+			<a ui-sref="app.solutions.netCentricSolutions">Solutions</a>
+			<a ui-sref="app">Contact</a>
+		</div>
+		<div layout="column" class="col-mid">
+			<h5>Partners & Initiatives</h5>
+			<a ui-sref="app">About DKW Communications Inc.</a>
+			<a ui-sref="app">Company and History</a>
+			<a ui-sref="app">Senior Managment Team</a>
+		</div>
+		<div layout="column" class="col-mid">
+			<h5>Recent News</h5>
+			<a ui-sref="app">
+				DKW is Now Certified as a Local 
+				Disadvantaged Business Enterprise
+			</a>
+			<a ui-sref="app">
+				DKW Selected By the U.S. Marine Corps to 
+				Manage Eight Data Centers in San Diego, California
+			</a>
+		</div>
+		<div layout="column" class="col-mid">
+			<h5>Contact Us</h5>
+			<a ui-sref="app">
+				Address: 2001 L Street N.W. DC, Suite 800
+			</a>
+			<a ui-sref="app">
+				Phone: (202) 355-7400
+			</a>
+			<a ui-sref="app">
+				Fax: (202) 296-8215
+			</a>
+			<div layout="row">
+				<i class="fa fa-facebook" aria-hidden="true"></i>
+				<i class="fa fa-twitter" aria-hidden="true"></i>
+				<i class="fa fa-youtube" aria-hidden="true"></i>
+				<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+			</div>
+		</div>
+	</div>
+	<div class="footer-footer" style="text-align: center">
+		DKW COMMUNICATIONS, INC. © COPYRIGHT 2014 | 2001 L STREET, N.W. SUITE 800, WASHINGTON, DC, 20036 | WEBSITE DEVELOPED BY DWJ Production. ALL RIGHTS RESERVED.
+	</div>
+</div>

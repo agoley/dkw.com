@@ -1,0 +1,98 @@
+.dkw-header {
+	padding: 20px;
+	height: 90px;
+	i {
+		color: @theme-color3;
+	}
+	#header-logo {
+		cursor: pointer;
+	}
+}
+
+#searchInput {
+	display:none;
+	font-size: 120%;
+	padding-top: 87px;
+	margin: 0 75px 0 20px;
+	height: 75px;
+	animation: fadeInDown 0.5s;
+	//@media @md-breakpoint-screen { padding-top:93px; }
+	@media @mobile-screen { margin: 0 25px 0 20px;}
+}
+
+.closeSearchBtn {
+	top: 0px;
+	color: rgba(0,0,0,0.38);
+	&:focus {
+      outline: none;
+    }
+	&:hover {
+		color: @theme-color;
+	}
+}
+
+.menu-header {
+	color: @theme-color3;
+	background-color: @theme-color;
+	padding: 20px;
+}
+
+.menu-title {
+	color: @theme-color3;
+	font-size: 125%;
+	font-weight: bold;
+}
+
+.submenu-title {
+	color: @theme-darkfade-black;
+	font-weight: bold;
+}
+
+.menu-link {
+	margin-left: -18px;
+	h5 {a {font-weight: bold; color: @theme-color}}
+}
+
+.dkw-menu {
+	background-color: @theme-color3;
+	position: fixed;
+	.menu-content {
+		background-color: @theme-color3;
+		position: relative;
+	}
+}
+
+.dkw-menu-option {
+	color: @theme-color3;
+	font-size: 120%;
+}
+
+.closeMenuBtn {
+	color: @theme-color3;
+}
+
+.back-btn {
+	background-color: @theme-color2;
+	color: @theme-color3;
+}
+
+.back-btn:hover {
+	opacity: 0.85;
+}
+
+.back-title {
+	color: @theme-color3;
+	font-weight: bold;
+}
+
+.back-chevron {
+	font-size: 150%;
+	padding: 5px 0 0 0;
+	color: @theme-color3;
+}
+
+.menu-chevron {
+	font-size: 150%;
+	padding: 0 0 15px 10px;
+	color: @theme-darkfade-black;
+}

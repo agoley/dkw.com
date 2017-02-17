@@ -1,0 +1,136 @@
+.page-container {
+  .dkw-solutions-section {
+    @header-height: 300px;
+    .solutions-header {
+      position: relative;
+      .header-panel {
+        position: relative;
+        background-color: @theme-sub-color;
+        width: 100%;
+        padding: 60px 0% 40px;
+        min-height: @header-height;
+        overflow: hidden;
+        @media @mobile-screen { min-height: 230px; }
+        .header-text {
+          position: absolute;
+          //left: 7%;
+          top: 0;
+          background-color: @theme-sub-fade-color;
+          text-align: left;
+          width: 100%;
+
+          z-index: 3;
+          height: 100%;
+          padding: 60px 7% 40px;
+          @media @tablet-screen, @mobile-screen {
+            max-width: 100%;
+            left: 0;
+          }
+          .section-title {
+            color: @theme-color3;
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            //-webkit-animation:1s fadeInDown ease;
+            //animation:1s fadeInDown ease;
+            &:hover { text-decoration: none; }
+            @media @tablet-screen, @mobile-screen { font-size: 1.8rem; }
+          }
+          .content-title {
+            color: @theme-color3;
+            padding-left: 10px;
+            font-size: 1.8rem;
+            -webkit-animation:0.5s fadeInUp ease;
+            animation:0.5s fadeInUp ease;
+            &.ng-leave { display: none;}
+            @media @tablet-screen, @mobile-screen { font-size: 1.3rem; color: rgba(255,255,255,1);}
+          }
+        }
+        .header-image {
+          position: absolute;
+          //right:7%;
+          top:0;
+          height: @header-height;
+          //max-width: 60%;
+          width: 100%;
+          z-index: 1;
+          -webkit-animation: fadeIn 1.5s;
+          animation: fadeIn 1.5s;
+          &.ng-leave { display: none;}
+          img {
+            width: 100%;
+            min-height: 100%;
+            opacity: 0.8;
+            @media @tablet-screen { width: 100%; }
+          }
+          @media @mobile-screen { width: 100% !important; height: 100%; left:0;}
+          @media @tablet-screen { width: 100% !important; height: 100%; right:0;}
+
+        }
+      }
+      .header-nav {
+        padding: 20px 5%;
+        background-color: @theme-color2;
+        width: 100%;
+        text-align: center;
+        @media @tablet-screen, @mobile-screen { padding: 10px 5%;}
+        .nav-container {
+          @media @tablet-screen, @mobile-screen {
+            height: 55px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space:nowrap;
+          }
+          .nav-item {
+            display: inline-block;
+            color: rgba(255,255,255,1);
+            padding: 5px 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            cursor: pointer;
+            &.home-icon { padding: 0 10px; vertical-align: middle; i { font-size: 1.5rem; } }
+            &+.nav-item { border-left: 1px solid rgba(255,255,255,1);}
+            @media @tablet-screen, @mobile-screen { padding: 17px 20px;}
+            &.active {
+              color: @theme-color;
+              cursor: default;
+              &:hover { text-decoration: none; }
+              @media @tablet-screen, @mobile-screen {
+                background: rgba(255,255,255,1);
+                &.home-icon { background-color: rgba(255,255,255,0); }
+              }
+            }
+          }
+        }
+      }
+      .mobile-directions {
+        text-align: center;
+        background-color: @theme-fade-color2;
+        font-size: 1rem;
+        font-weight: bold;
+        display: none;
+        padding: 4px;
+        color: rgba(255,255,255,1);
+        @media @tablet-screen, @mobile-screen { display: block;}
+      }
+    }
+    .solution-content {
+      .content-section {
+        padding: 60px 7%;
+        .content-items {
+          font-size: 1.1rem;
+          line-height: 2.1rem;
+          -webkit-animation: fadeInUp 0.5s;
+          animation: fadeInUp 0.5s;
+          word-break: break-word;
+
+          &.ng-leave { display: none;}
+          @media @tablet-screen, @mobile-screen { font-size: 1rem; line-height: 1.5rem;}
+          .text-content { }
+          .list-content { }
+          &+.content-items { margin-top: 15px; }
+        }
+      }
+    }
+  }
+}

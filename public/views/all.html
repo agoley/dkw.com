@@ -1,0 +1,15 @@
+<!-- template for the root component -->
+<div class="page-wrap">
+	<!-- all content needs to be inside of the page wrap div -->
+   <dkw-header view="$ctrl.view"/>
+   <!--Main Body Content-->
+   <div id="dkw-body" class="mainBody" ui-view="content" autoscroll="true" aria-relevant="all" aria-live="assertive"></div>
+</div>
+<div class="social-links">
+  <div class="social-icon color1"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></div>
+  <div class="social-icon color2"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></div>
+  <div class="social-icon color3"><i class="fa fa-youtube fa-2x" aria-hidden="true"></i></div>
+  <div class="social-icon color4"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></div>
+</div>
+<!-- dkw-footer needs to be outside of the page wrap div -->
+<dkw-footer/>

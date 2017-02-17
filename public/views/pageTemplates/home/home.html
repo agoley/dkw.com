@@ -1,0 +1,167 @@
+<div class="home-container">
+   <!--Home Carousel-->
+   <section class="dkw-carousel" hero-img>
+      <uib-carousel template-url="views/pageTemplates/home/carousel.html" active="$ctrl.active" interval="$ctrl.myInterval" no-wrap="false" no-pause="true" hero-img>
+         <uib-slide ng-repeat="slide in $ctrl.slides track by slide.id" index="slide.id">
+            <div class="img-cover"></div>
+            <img class="main-img image" ng-if="slide.type == 'img'" ng-src="{{slide.image}}">
+            <!-- Video and Mobile Replacement -->
+            <video class="main-img video" id="carouselVideo" ng-if="slide.type == 'video'" autoplay loop><source ng-src="{{slide.location}}" /></video>
+            <img class="main-img video-mobile" ng-if="slide.type == 'video'" ng-src="{{slide.image}}">
+
+            <div class="carousel-caption">
+               <div class="caption-title">{{slide.title}}</div>
+               <div class="caption-text">{{slide.text}}</div>
+            </div>
+         </uib-slide>
+      </uib-carousel>
+   </section>
+   <!--Solutions-->
+   <section class="dkw-solutions">
+      <div class="selected-solution" >
+         <div class="solutions-title">Our Solutions</div>
+         <div class="selected-container" ng-animate-swap="$ctrl.selectedSolution">
+            <div class="selected-content" >
+               <div class="selected-title">{{$ctrl.selectedSolution.title}}</div>
+               <div class="selected-text">{{$ctrl.selectedSolution.content | limitTo: 250}}...</div>
+               <md-button class="md-raised" ui-sref="{{$ctrl.selectedSolution.state}}">
+						Learn More <i class="fa fa-info-circle"></i>
+					</md-button>
+            </div>
+            <img class="selected-img" ng-src="{{$ctrl.selectedSolution.image}}">
+         </div>
+      </div>
+      <div class="all-solutions">
+         <div class="solutions-container">
+            <div class="solution-item" ng-repeat="item in $ctrl.solutions" ng-class="{'active': $ctrl.isSelected(item)}" ng-click="$ctrl.changeSelected(item)">
+               <div class="selected-point" ng-if="$ctrl.isSelected(item)"></div>
+               <div class="item-title">{{item.title}}</div>
+            </div>
+         </div>
+         <div class="mobile-directions"><i class="fa fa-chevron-left"></i> <span>SCROLL</span> <i class="fa fa-chevron-right"></i></div>
+      </div>
+   </section>
+   <!-- Spacer Image -->
+   <section class="parallax-img">
+     <div class="parallax-cover"></div>
+     <div class="parallax-main" back-img="{{$ctrl.image1}}"></div>
+   </section>
+   <!--News-->
+   <section class="dkw-news">
+      <div ng-cloak>
+         <md-content class="md-padding" layout-xs="column" layout="row">
+            <div class="section-title">Recent News</div>
+            <div flex-xs flex-gt-xs="50" layout="column">
+               <md-card md-theme-watch>
+                  <md-card-title>
+                     <md-card-title-text>
+                        <span class="md-headline">DKW is now certified as a Local Disadvantaged Business Enterprise</span>
+                        <span class="md-subhead"></span>
+                     </md-card-title-text>
+                  </md-card-title>
+                  <md-card-content layout="row" layout-align="space-between">
+                     <div class="md-media-lg card-media">
+                     </div>
+                     DKW is now certified as a Local Disadvantaged Business Enterprise (LDBE) with the Metropolitan Washington Airports Authority (Authority) Expiration Date January 20, 2018
+                     <!--<md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="" aria-label="More">
+                        	<i class="fa fa-share-alt" aria-hidden="true"></i>
+                        </md-button>
+                                   </md-card-actions>-->
+                  </md-card-content>
+               </md-card>
+               <md-card md-theme-watch>
+                  <md-card-title>
+                     <md-card-title-text>
+                        <span class="md-headline">DKW Selected By the U.S. Marine Corps to Manage Eight Data Centers in San Diego, California</span>
+                        <span class="md-subhead"></span>
+                     </md-card-title-text>
+                  </md-card-title>
+                  <md-card-content layout="row" layout-align="space-between">
+                     <div class="card-media">
+                        <div class="img-container"><image src="images/marine-img.jpeg" layout="column" ui-sref="app"/></div>
+                        <p class="card-media-text">DKW was recently awarded a $4.5 million dollar contract with the U.S. Marine Corps to provide network analysis, data center planning, IT project management, network and facilities engineering, and implementation and testing of network designs for eight data centers located in San Diego, California.</p>
+                     </div>
+
+                     <!--<md-card-actions layout="column">
+                        <md-card-actions layout="row" layout-align="end center">
+                           <md-button ng-click="" aria-label="More">
+                              <i class="fa fa-share-alt" aria-hidden="true"></i>
+                           </md-button>
+                        </md-card-actions>
+                        </md-card-actions>-->
+                  </md-card-content>
+               </md-card>
+            </div>
+            <div flex-xs flex-gt-xs="50" layout="column">
+               <md-card md-theme-watch>
+                  <md-card-title>
+                     <md-card-title-text>
+                        <span class="md-headline">DKW Awarded New Contract to Provide IT Support Services to the U.S. Department of Interior</span>
+                        <span class="md-subhead"></span>
+                     </md-card-title-text>
+                     <md-card-title-media>
+                        <div class="md-media-sm card-media"></div>
+                     </md-card-title-media>
+                  </md-card-title>
+                  <md-card-content layout="row" layout-align="space-between">
+                     The U.S. Department of Interior, Office of Natural Resources Revenue (ONRR) recently selected DKW Communications, Inc. to support its IT operations at its Denver Federal Center in Lakewood, Colorado. ONRR is responsible for the management of revenues associated with Federal offshore and Federal and American Indian onshore mineral leases, as well as revenues received as a result of offshore renewable energy efforts. ONRR also ensures that the nation’s Federal and American Indian natural resources revenues are accurately reported and paid in compliance with laws, regulations, and lease terms. DKW will provide applications development and Documentum support, IT helpdesk support, and database administration.
+                  </md-card-content>
+                  <!-- commenting out for now because of weird bolding effect when switching
+						<md-card-actions layout="row" layout-align="end center">
+                     <md-button ng-if="$ctrl.minStory" ng-click="$ctrl.moreNews()" aria-label="More">
+                        Show More...
+                     </md-button>
+                     <md-button ng-if="!$ctrl.minStory" ng-click="$ctrl.lessNews()" aria-label="More">
+                        Show less...
+                     </md-button>
+                  </md-card-actions>-->
+               </md-card>
+               <md-card md-theme-watch ng-if="$ctrl.showMore">
+                  <md-card-title>
+                     <md-card-title-text>
+                        <span class="md-headline">DKW Awarded $10 Million Dollar Contract to Provide Software Development Services to the United States Department of Agriculture (USDA), Food Safety and Inspection Service</span>
+                        <span class="md-subhead"></span>
+                     </md-card-title-text>
+                     <md-card-title-media>
+                        <div class="md-media-xl card-media"></div>
+                     </md-card-title-media>
+                  </md-card-title>
+                  <md-card-content layout="row" layout-align="space-between">
+                     The Unites States Department of Agriculture (USDA), Food Safety and Inspection Service (FSIS) selected DKW to provide ongoing software maintenance for its Public Health Information System (PHIS) which supports FSIS in protecting the U.S. food supply by ensuring that our commercial supply of meat, poultry, and egg products is safe, wholesome, and correctly labeled and packaged.
+                  </md-card-content>
+                  <!--<md-card-actions layout="row" layout-align="end center">
+                     <md-button ng-click="" aria-label="More">
+                     	Show more...
+                     </md-button>
+                     </md-card-actions>-->
+               </md-card>
+               <div class="selected-content" layout layout-align="end">
+                  <md-button class="md-raised" ng-click="$ctrl.showMore = true" aria-label="More">
+                     More Stories...
+                  </md-button>
+               </div>
+            </div>
+         </md-content>
+      </div>
+   </section>
+   <!-- Spacer Image -->
+   <section class="parallax-img">
+     <div class="parallax-cover"></div>
+     <div class="parallax-main" back-img="{{$ctrl.image2}}"></div>
+   </section>
+   <!--Key Clients-->
+   <section class="dkw-key-clients">
+      <div class="section-title">Key Clients & Certifications</div>
+      <div class="clients-section">
+        <i class="fa fa-angle-left" aria-hidden="true" ng-click="$ctrl.clientCtrl('left')" ng-class="{inactive: $ctrl.checkCtrlActive('left')}"></i>
+        <div class="client-container">
+           <a ng-href="{{item.url}}" class="client-item" ng-repeat="item in $ctrl.keyClients" target="_blank">
+             <img ng-src="{{item.image}}" />
+           </a>
+        </div>
+        <i class="fa fa-angle-right" aria-hidden="true" ng-click="$ctrl.clientCtrl('right')" ng-class="{inactive: $ctrl.checkCtrlActive('right')}"></i>
+      </div>
+      <div class="mobile-directions"><i class="fa fa-chevron-left"></i> <span>SCROLL</span> <i class="fa fa-chevron-right"></i></div>
+   </section>
+</div>

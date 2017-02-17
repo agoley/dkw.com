@@ -1,0 +1,61 @@
+<!--<h1>You have {{$ctrl.searchResults.length}} results for "{{$ctrl.Id}}"</h1>-->
+<div class="page-container">
+  <div class="dkw-searchResults-section">
+    <!-- Results Header -->
+    <div class="results-header">
+      <div class="results-title">Search Results <span ng-if="$ctrl.searchResults.filtered.length > 0">{{$ctrl.getItemNum("min")}} - {{$ctrl.getItemNum("max")}} of {{$ctrl.searchResults.filtered.length}}</span> for <span class="results-search">"{{$ctrl.Id}}"</span></div>
+
+      <div class="results-filter">
+        <div class="filter-header">Filter By: </div>
+        <div class="filter-container">
+          <div class="filter-mobile-container">
+            <div class="filter-ctrl" ng-class="{active: $ctrl.searchResults.displaySection == 'all' }" ng-click="$ctrl.setDisplaySection('all')"><span><i class="fa fa-circle-o-notch" aria-hidden="true"></i> All</span></div>
+            <div class="filter-ctrl" ng-class="{active: $ctrl.searchResults.displaySection == 'solutions' }" ng-click="$ctrl.setDisplaySection('solutions')"><span><i class="fa fa-cogs" aria-hidden="true"></i> Solutions</span></div>
+            <div class="filter-ctrl" ng-class="{active: $ctrl.searchResults.displaySection == 'contractVehicles' }" ng-click="$ctrl.setDisplaySection('contractVehicles')"><span><i class="fa fa-file-text-o" aria-hidden="true"></i> Contract Vehicles</span></div>
+            <div class="filter-ctrl" ng-class="{active: $ctrl.searchResults.displaySection == 'news' }" ng-click="$ctrl.setDisplaySection('news')"><span><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-directions"><i class="fa fa-chevron-left"></i> <span>SCROLL</span> <i class="fa fa-chevron-right"></i></div>
+
+    <!-- Results Content -->
+    <div class="results-data" ng-if="$ctrl.searchResults.filtered.length > 0 && $ctrl.searchResults.displayed.length > 0 ">
+      <div class="data-item" ng-repeat="item in $ctrl.searchResults.displayed" ui-sref="{{item.state}}">
+        <div class="item-icon">
+          <!--<div class="icon-circle"></div>-->
+          <i class="icon-circle fa" ng-class="{'fa-cogs' : item.section == 'solutions', 'fa-file-text-o': item.section == 'contractVehicles', 'fa-newspaper-o': item.section == 'news'}" aria-hidden="true"></i>
+        </div>
+        <div class="item-content">
+          <div class="content-title" ng-bind-html="$ctrl.highlightSearch(item.title)"></div>
+          <div class="content-section">{{item.section}}</div>
+          <!--<div class="content-preview">...{{$ctrl.getPreview(item.content) | limitTo: 100}}...</div>-->
+          <div class="content-preview" ng-bind-html="$ctrl.highlightSearch($ctrl.getPreview(item.content, 150))"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Results -->
+    <div class="no-results-data" ng-if="$ctrl.searchResults.filtered.length == 0 || $ctrl.searchResults.displayed.length == 0 ">
+      <div class="error-msg">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-search fa-stack-1x"></i>
+          <i class="fa fa-ban fa-stack-2x text-danger"></i>
+        </span>
+        <span>Sorry No Results were found for this search!</span>
+      </div>
+    </div>
+
+    <!--Results Control-->
+    <div class="results-ctrl" ng-if="$ctrl.searchResults.filtered.length > 0 && $ctrl.searchResults.displayed.length > 0 ">
+      <div class="page-ctrl-container">
+        <span class="page-ctrl-header">Page:</span>
+        <div class="page-selector" ng-repeat="i in $ctrl.searchResults.totalPages track by $index" ng-class="{active: ($index+1) == $ctrl.searchResults.page }" ng-click="$ctrl.setDisplayPage($index+1)">{{$index+1}}</div>
+      </div>
+      <div class="page-size-container">
+        <span class="page-size-header">Page Size:</span>
+        <div class="size-selector" ng-repeat="size in $ctrl.searchResults.displayInc" ng-class="{active: size == $ctrl.searchResults.displayNum }" ng-click="$ctrl.setDisplayPageSize(size)">{{size}}</div>
+      </div>
+    </div>
+  </div>
+</div>
