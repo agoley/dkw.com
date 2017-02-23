@@ -16,7 +16,7 @@
       <div class="header-nav">
         <div class="nav-container">
           <a class="nav-item home-icon" ui-sref="{{$ctrl.pageInfo.state}}" ui-sref-active="active"><i class="fa fa-cogs"></i></a>
-          <a class="nav-item" ng-repeat="item in $ctrl.items" ui-sref="{{item.state}}" ui-sref-active="active" ng-attr-id="{{$ctrl.setID(item.title)}}">{{item.title}}</a>
+          <a class="nav-item" ng-repeat="item in $ctrl.pageInfo.items" ui-sref="{{item.state}}" ui-sref-active="active" ng-attr-id="{{$ctrl.setID(item.title)}}">{{item.title}}</a>
           <!--<a class="nav-item" ng-repeat="item in $ctrl.items" ng-click="$ctrl.getItem(item.title)" ng-class="{active: $ctrl.linkIsActive(item.title)}" ng-attr-id="{{$ctrl.setID(item.title)}}">{{item.title}}</a>-->
         </div>
       </div>
