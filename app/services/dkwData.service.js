@@ -2,6 +2,7 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
   return {
     all: function(){
       var siteData = {"solutions":dkwData.dkwSolutions, "news": dkwData.dkwNews,"contractVehicles":dkwData.dkwContractVehicles};
+      return siteData;
     },
     pages:{
       solutions: function(title){
@@ -13,13 +14,25 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
         }
         return solutionsPage;
       }
+    },
+    search: {
+      all:function(){
+        var solutions = dkwData.dkwSolutions;
+        var solutionsArray = [];
+        for(var key in solutions){
+          solutionsArray.push(solutions[key]);
+        }
+        
+        var siteData = {"solutions":solutionsArray, "news": dkwData.dkwNews,"contractVehicles":dkwData.dkwContractVehicles};
+        return siteData;
+      }
     }
   }
 }])
 .factory("dkwData", ['$http', function ($http){
   function dkwInfoData() {
     var data = this;
-    
+
     // Solutions Data
     data.dkwSolutions = {
         "Enterprise|Net-Centric|Solutions":{"sectionTitle":"Enterprise Net-Centric Solutions", "image":"images/teamwork.jpg","state":'app.solutions.netCentricSolutions({Id:""})',
