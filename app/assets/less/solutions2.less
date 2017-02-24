@@ -1,0 +1,153 @@
+.page-container {
+  .dkw-solutions-section {
+    @header-height: 300px;
+
+    .solutions-nav {
+      padding: 0px 7%;
+      background: rgba(0,0,0,0.1);
+      .solutions-nav-container {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
+        position: relative;
+
+        .nav-ctrl {
+          display: inline-block;
+          width: 35px;
+          position: relative;
+          visibility: hidden;
+
+          i {
+            font-size: 50px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+
+          &.left { border-right: 1px solid rgba(150,150,150,0.5); i { left: 0;}}
+          &.right {border-left: 1px solid rgba(150,150,150,0.5);  i { right: 0; }}
+
+          &.no-show { border: none; i { opacity: 0.2; } }
+          @media @mobile-screen { visibility: visible; }
+        }
+        .nav-items-container {
+          display: flex;
+          -webkit-align-items: stretch;
+          align-items: stretch;
+          overflow: hidden;
+          width: calc(~"100% - 70px");
+          justify-content: space-around;
+
+          @media @mobile-screen { display: inline-block; white-space:nowrap;  }
+          .nav-item {
+            width: 100px;
+            overflow: hidden;
+            padding: 10px 5px;
+            text-align: center;
+            display: inline-block;
+            white-space: initial;
+            height: 100%;
+            cursor: pointer;
+            transition: 0.1s all ease-in-out;
+
+            .item-icon { font-size: 2rem;}
+            .item-title { font-size: .7rem; }
+
+            &.active {
+              background: rgba(0,0,0,0.2);
+              color:rgba(255,255,255,1);
+              &:hover { .item-title { color: rgba(255,255,255,1); }}
+            }
+
+            &:hover { color: @theme-color2; }
+          }
+        }
+      }
+    }
+
+    /*Solution Content*/
+    .solutions-content {
+      .solutions-content-container {
+        position: relative;
+        width: 100%;
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 1;
+        .selected-content {
+          position: relative;
+          z-index: 2;
+          display: inline-block;
+          width: 60%;
+          background: @main-background;
+          padding: 50px 20px 50px 7%;
+          .selected-title { font-size: 3rem; font-weight: bold; margin-bottom: 20px; }
+          .selected-items-container {
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
+            column-count: 2;
+            .selected-items {
+              font-size: 1rem;
+              line-height: 2rem;
+              .text-content { }
+              .list-content { }
+              &.spacer { margin-top: 50px; }
+            }
+          }
+
+          @media @mobile-screen {
+            width: 100%;
+            opacity: 0.9;
+            .selected-items-container {
+              -webkit-column-count: 1;
+              -moz-column-count: 1;
+              column-count: 1;
+            }
+          }
+        }
+        .after-angle1 {
+          position: absolute;
+          z-index: 1;
+          right: 0;
+          top:0;
+          display: inline-block;
+          width: 0;
+        	height: 0;
+        	border-top: 200px solid @main-background;
+        	border-right: 900px solid transparent;
+          @media @mobile-screen { display: none; }
+        }
+        .after-angle2 {
+          display: block;
+          width: 0;
+        	height: 0;
+        	border-top: 200px solid @main-background;
+        	border-right: 370px solid transparent;
+          @media @mobile-screen { display: none; }
+        }
+
+        @media @tablet-screen, @mobile-screen {
+          background-attachment: inherit;
+          background-position: inherit;
+          width: 100%;
+        }
+
+        &.homeContent {
+          .selected-content {
+            width: 80%;
+            .selected-items-container { -webkit-column-count: 1; -moz-column-count: 1; column-count: 1; }
+            @media @mobile-screen { width: 100%; }
+          }
+          .after-angle1 { }
+          .after-angle2 { }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<div class="page-container">
+  <div class="dkw-solutions-section">
+    <!-- Page Header-->
+    <md-toolbar md-scroll-shrink class="md-hue-2 sub-theme">
+       <div class="md-toolbar-tools bold"><h2>{{$ctrl.pageTitle}}</h2></div>
+    </md-toolbar>
+    <!-- Solutions Header -->
+    <div class="solutions-nav">
+      <div class="solutions-nav-container">
+        <div class="nav-ctrl left" ng-class="{'no-show': !$ctrl.showLeft}" ng-click="$ctrl.clientCtrl('left')"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+        <div class="nav-items-container">
+          <!-- Home Solution -->
+          <div class="nav-item" ui-sref="{{$ctrl.pageInfo.state}}" ui-sref-active="active">
+            <div class="item-icon"><i class="fa {{$ctrl.pageInfo.icon}}" aria-hidden="true"></i></div>
+            <div class="item-title">{{$ctrl.pageInfo.sectionTitle}}</div>
+          </div>
+          <!-- All Solutions -->
+          <div class="nav-item" ng-repeat="item in $ctrl.pageInfo.items" ui-sref="{{item.state}}" ui-sref-active="active">
+            <div class="item-icon"><i class="fa {{item.icon}}" aria-hidden="true"></i></div>
+            <div class="item-title">{{item.title}}</div>
+          </div>
+        </div>
+        <div class="nav-ctrl right" ng-class="{'no-show': !$ctrl.showRight}" ng-click="$ctrl.clientCtrl('right')"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+      </div>
+    </div>
+    <!-- Solutions Content -->
+    <div class="solutions-content">
+      <div class="solutions-content-container" ng-class="{'homeContent':$ctrl.selectedItem.isHome == true}" back-img="{{$ctrl.selectedItem.image}}">
+        <div class="selected-content">
+          <div class="selected-title">{{$ctrl.selectedItem.title}}</div>
+          <div class="selected-items-container">
+            <div class="selected-items" ng-repeat="content in $ctrl.selectedItem.content" ng-class="{'spacer':content.spacer == true}" ng-animate-swap="$ctrl.selectedItem">
+              <div class="text-content" ng-if="content.type == 'text'">{{content.content}}</div>
+              <div class="list-content" ng-if="content.type == 'list'">
+                <ul>
+                  <li ng-repeat="list in content.content">{{list}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- -->
+        <div class="after-angle1"></div>
+        <div class="after-angle2"></div>
+      </div>
+    </div>
+
+  </div>
+</div>

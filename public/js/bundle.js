@@ -792,13 +792,15 @@ $scope.toggleInterval = function() {
 // Services component for DKW Site
 components.component('netCentricSolutions', {
    bindings: {},
-	controller: function ($stateParams, $sce, $location, $anchorScroll, dkwDataMonitor) {
+	controller: function ($scope, $stateParams, $sce, $location, dkwDataMonitor) {
       var ctrl = this;
 
       /* Variables */
-      ctrl.pageInfo = dkwDataMonitor.pages.solutions("Enterprise Net-Centric Solutions");
+      ctrl.pageTitle = "Enterprise Net-Centric Solutions";
+      ctrl.pageInfo = dkwDataMonitor.pages.solutions(ctrl.pageTitle);
       ctrl.selectedItem = {};
-
+      ctrl.showLeft = false;
+      ctrl.showRight = true;
 
       /* Functions */
       ctrl.setID = function(title){
@@ -806,21 +808,62 @@ components.component('netCentricSolutions', {
       }
 
       ctrl.getItem = function(searchId){
-        var results = $.grep(ctrl.pageInfo.items, function(e){ return e.title.toLowerCase() == searchId.toLowerCase()});
+        var resultIndex = ctrl.pageInfo.items.findIndex(e => e.title.toLowerCase() == searchId.toLowerCase());
+
+        //var results = $.grep(ctrl.pageInfo.items, function(e){ return e.title.toLowerCase() == searchId.toLowerCase()});
         var object = null;
-        if (results.length == 0) {
+        if (resultIndex < 0) {
           // not found
-        } else if (results.length == 1) {
-          object = results[0];
         } else {
-          // multiple items found
+          //object = results[0];
+          object = ctrl.pageInfo.items[resultIndex];
+          // scroll to object
+          var objectWidth = ($('.nav-item')[0].offsetWidth * resultIndex);
+          $('.nav-items-container').animate({ scrollLeft: "+="+objectWidth+"px"}, 300);
+
+          if(resultIndex < (ctrl.pageInfo.items.length - 1) && resultIndex > 0){
+            ctrl.showLeft = true;
+            ctrl.showRight = true;
+          }
+          else if(resultIndex == 0) {
+            ctrl.showLeft = false;
+          }
+          else if(resultIndex >= (ctrl.pageInfo.items.length - 1)){
+            ctrl.showLeft = true;
+            ctrl.showRight = false;
+          }
         }
         ctrl.selectedItem = object;
-        var tst =0;
       }
 
       ctrl.linkIsActive = function(title){
         return (title == ctrl.selectedItem.title);
+      }
+
+      ctrl.clientCtrl = function(direction) {
+        var scrollContainer = $('.nav-items-container')[0];
+        var objectWidth = ($('.nav-item')[0].offsetWidth * 2);
+
+        if(direction == "left"){
+          // Move Left to Right
+          $('.nav-items-container').animate({ scrollLeft: "-="+objectWidth+"px"}, "slow");
+          ctrl.showRight = true;
+          if((scrollContainer.scrollLeft - objectWidth) <= 0){
+            ctrl.showLeft = false;
+          }
+        }
+        else if(direction == "right"){
+          // Move Right to Left
+          $('.nav-items-container').animate({ scrollLeft: "+="+objectWidth+"px"}, "slow");
+          ctrl.showLeft = true;
+          if((scrollContainer.scrollLeft + scrollContainer.offsetWidth + objectWidth) >= scrollContainer.scrollWidth){
+            ctrl.showRight = false;
+          }
+        }
+        //ctrl.showLeft = ctrl.displayCtrl('left');
+        //ctrl.showRight = ctrl.displayCtrl('right');
+
+        var tst =0;
       }
 
       // Set Page Information
@@ -831,10 +874,12 @@ components.component('netCentricSolutions', {
       }
       else {
         ctrl.selectedItem = ctrl.pageInfo;
+        ctrl.selectedItem.title = ctrl.pageInfo.sectionTitle;
+        ctrl.selectedItem.isHome = true;
       }
 
    },
-   templateUrl: 'views/pageTemplates/solutions/net-centric-solutions.html'
+   templateUrl: 'views/pageTemplates/solutions/solutions.html'
 });
 
 // footer component for DKWSite
@@ -1260,7 +1305,7 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
         "content":[
           {"type":"text", "content":"DKW designs, engineers, deploys, and maintains a full range of software, database, and web information systems through a structured, disciplined set of proven systems and application software engineering practices and life cycle maintenance techniques. These practices encompass the full life cycle development process from project analysis to project closeout for projects requiring the development or modification of systems and software. Our approach to defining the systems and software engineering practices is based on the Software Engineering Institute’s (SEI) Capability Maturity Model Integration (CMMI) Level 2 best practices, which have been assessed at Capability Maturity Model Integration (CMMI) Level 3."},
           {"type":"list", "content":["Since 2006, DKW has supported SPAWAR Atlantic in the application of sound software development, software engineering, and programming support, based our end-customers’ System Development Lifecycle (SDLC). Our team of software architects, engineers, developers, quality assurance testers, and technical writers have applied engineering, security, and scientific disciplines for a variety of financial management, medical, administrative, and logistics management applications, developing these applications using the classic waterfall or Agile development approach as best fit the client’s requirements.","DKW has been a significant contributor to the transformation of the Public Health Information System (PHIS), a critical USDA system used to protect our Nation’s food sources. This complex system consists of 800 database tables and 5.8 million lines of code."]},
-          {"type":"text","content":"Since 2010, DKW has been providing CMMI DEV L3-appraised Information Technology Services (ITS) and Software Maintenance Support (SMS) for the PHIS application, which is a comprehensive, data-driven inspection system comprised of multiple applications that was developed to collect, mine and analyze inspection, surveillance and investigative data; predict hazards and vulnerabilities; communicate or report analysis results; and target resources to prevent or mitigate the risk of food borne illness and threats to the nation’s food supply. DKW has been the key enabler for USDA in implementing required enhancements to FSIS through waterfall, agile, and hybrid software development methodologies, and we have transitioned 11 USDA legacy systems in the process."},
+          {"type":"text", "spacer":true, "content":"Since 2010, DKW has been providing CMMI DEV L3-appraised Information Technology Services (ITS) and Software Maintenance Support (SMS) for the PHIS application, which is a comprehensive, data-driven inspection system comprised of multiple applications that was developed to collect, mine and analyze inspection, surveillance and investigative data; predict hazards and vulnerabilities; communicate or report analysis results; and target resources to prevent or mitigate the risk of food borne illness and threats to the nation’s food supply. DKW has been the key enabler for USDA in implementing required enhancements to FSIS through waterfall, agile, and hybrid software development methodologies, and we have transitioned 11 USDA legacy systems in the process."},
           {"type":"text","content":"DKW has worked closely with FSIS as it implemented a phased approach to the continual development and maintenance of PHIS to ensure that FSIS employees and other users of PHIS could accomplish their primary objectives without interruption of business operations. This phased approach sought to stabilize, optimize, and then transform PHIS."},
           {"type":"list","content":["DKW is prime contractor in support of the Global Information Grid (GIG) Technical Guidance Federation (GTG-F), which is a suite of software applications on the NIPRNet and SIPRNet that provide technical guidance across the DISA Enterprise to achieve net-ready, interoperable, and supportable GIG systems. The GTG-F assists program managers, portfolio managers, engineers, and others in answering two questions critical to any IT or National Security Systems (NSS): (1) Where does the IT or NSS fit, as both a provider and consumer, into the GIG with regard to End-to-End technical performance, access to data and services, and interoperability?; and (2) What must an IT system or NSS do to ensure technical interoperability with the GIG? Several of the GIG Technical Guidance business processes have joined together as a single Web destination that has provided several advantages to our clients, such as ease of use, reduced hosting costs, and increasing data availability to the DoD community. DKW architects, designs, develops, implements, and provides maintenance for the GTG Federated Tools Suite. It is the authoritative source for ISP assessment data, GTPs with implementation guidance, and compliance. The GTG Federated Tools Suite program is a key enabler of the ongoing DISA-led IT enterprise transformation.","DKW modernized the Navy Fleet’s Sensitive Compartmented Information (SCI) Network Operations Center (NOC), which was formerly an antiquated network with an overly complex footprint that was difficult to manage. DKW analyzed the system architecture, the CONOPS, and the security environment to identify which areas needed to be improved and which vulnerabilities needed to be addressed. DKW discovered that the hardware and software were in some cases at end-of-life, a situation which the Navy deemed an unacceptable level of risk."]},
           {"type":"text","content":"DKW provided the Fleet SCI NOC with solutions that mitigated the risks, including replacement of older Cisco routers and Catalyst switches with upgraded components, reducing the overall footprint and complexity and increasing overall efficiency as well as virtualizing the hardware using VMware."}

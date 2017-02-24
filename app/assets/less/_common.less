@@ -10,6 +10,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans');
 
 /*Theme Color*/
+@main-background: #eceff1;
+
 @theme-color: rgba(17,61,113,1);
 @theme-fade-color: rgba(17,61,113,0.5);
 @theme-sub-color: rgba(40, 80, 127, 1);
@@ -44,7 +46,7 @@ html, body {
 	/* equal to footer height */
    margin-bottom: -300px;
    //background-color: white;
-   background-color: #eceff1;
+   background-color: @main-background;
    &::after {
       content: "";
       display: block;
