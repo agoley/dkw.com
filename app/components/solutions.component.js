@@ -1,11 +1,26 @@
 // Services component for DKW Site
-components.component('netCentricSolutions', {
+components.component('solutions', {
    bindings: {},
-	controller: function ($scope, $stateParams, $sce, $location, dkwDataMonitor) {
+	controller: function ($scope, $stateParams, $sce, $state, dkwDataMonitor) {
       var ctrl = this;
 
       /* Variables */
-      ctrl.pageTitle = "Enterprise Net-Centric Solutions";
+      var currState = $state.current.name;
+      switch(currState){
+        case 'app.solutions.netCentricSolutions':
+          ctrl.pageTitle = "Enterprise Net-Centric Solutions";
+          break;
+        case 'app.solutions.cyberSecurityAndIntelligence':
+          ctrl.pageTitle = "Cyber Security and Intelligence Service";
+          break;
+        case 'app.solutions.managementConsulting':
+          ctrl.pageTitle = "Management Consulting";
+          break;
+        default:
+          ctrl.pageTitle = "";
+          break;
+      }
+
       ctrl.pageInfo = dkwDataMonitor.pages.solutions(ctrl.pageTitle);
       ctrl.selectedItem = {};
       ctrl.showLeft = false;
@@ -17,14 +32,12 @@ components.component('netCentricSolutions', {
       }
 
       ctrl.getItem = function(searchId){
-        var resultIndex = ctrl.pageInfo.items.findIndex(e => e.title.toLowerCase() == searchId.toLowerCase());
+        var resultIndex = ctrl.pageInfo.items.findIndex(e => e.title.toLowerCase().replace(/[&\/]/gi, '') == searchId.toLowerCase());
 
-        //var results = $.grep(ctrl.pageInfo.items, function(e){ return e.title.toLowerCase() == searchId.toLowerCase()});
         var object = null;
         if (resultIndex < 0) {
           // not found
         } else {
-          //object = results[0];
           object = ctrl.pageInfo.items[resultIndex];
           // scroll to object
           var objectWidth = ($('.nav-item')[0].offsetWidth * resultIndex);
@@ -69,9 +82,7 @@ components.component('netCentricSolutions', {
             ctrl.showRight = false;
           }
         }
-        //ctrl.showLeft = ctrl.displayCtrl('left');
-        //ctrl.showRight = ctrl.displayCtrl('right');
-
+      
         var tst =0;
       }
 

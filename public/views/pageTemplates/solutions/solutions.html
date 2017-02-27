@@ -30,6 +30,8 @@
           <div class="selected-title">{{$ctrl.selectedItem.title}}</div>
           <div class="selected-items-container">
             <div class="selected-items" ng-repeat="content in $ctrl.selectedItem.content" ng-class="{'spacer':content.spacer == true}" ng-animate-swap="$ctrl.selectedItem">
+              <div class="subtitle1-content" ng-if="content.type == 'subtitle1'">{{content.content}}</div>
+              <div class="subtitle2-content" ng-if="content.type == 'subtitle2'"><span>{{content.content}}</span></div>
               <div class="text-content" ng-if="content.type == 'text'">{{content.content}}</div>
               <div class="list-content" ng-if="content.type == 'list'">
                 <ul>

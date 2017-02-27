@@ -4,7 +4,6 @@ dkwSite.config(['$stateProvider', '$urlRouterProvider','$locationProvider', func
         url: "/",
         views: {
           'content':{
-            //templateUrl: 'views/pageTemplates/home.html'
             component: 'home'
           }
         }
@@ -18,22 +17,36 @@ dkwSite.config(['$stateProvider', '$urlRouterProvider','$locationProvider', func
         url: "/message-from-the-president",
         views: {
           'content@': {
-            //templateUrl: 'views/pageTemplates/solutions/net-centric-solutions.html'
             component: 'messageFromPresident'
           }
         }
       })
       .state('app.solutions', {
         abstract: true,
-        url: "solutions",
+        url: "our-solutions",
         views: {}
       })
       .state('app.solutions.netCentricSolutions', {
         url: "/net-centric-solutions/:Id",
         views: {
           'content@': {
-            //templateUrl: 'views/pageTemplates/solutions/net-centric-solutions.html'
-            component: 'netCentricSolutions'
+            component: 'solutions'
+          }
+        }
+      })
+      .state('app.solutions.cyberSecurityAndIntelligence', {
+        url: "/cyber-security-and-intelligence/:Id",
+        views: {
+          'content@': {
+            component: 'solutions'
+          }
+        }
+      })
+      .state('app.solutions.managementConsulting', {
+        url: "/management-consulting/:Id",
+        views: {
+          'content@': {
+            component: 'solutions'
           }
         }
       })
@@ -41,7 +54,6 @@ dkwSite.config(['$stateProvider', '$urlRouterProvider','$locationProvider', func
         url: "search/:searchquery",
         views: {
           'content@': {
-            //templateUrl: 'views/pageTemplates/solutions/net-centric-solutions.html'
             component: 'search'
           }
         }

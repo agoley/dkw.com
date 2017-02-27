@@ -56,7 +56,89 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
           {"title":"Service Desk", "state":'app.solutions.netCentricSolutions({Id: "service-desk" })',"image":"images/serviceDesk1.jpg", "icon":"fa-handshake-o", "content":[{"type":"text", "content":"DKW’s Service Desk operations are delivered through a consistent set of tools and processes, using an ITIL based approach to IT Service Delivery. DKW has diverse experience in transitioning customers from multiple Helpdesks to a centralized Service Desk, which also leads to standardization across enterprise operations." }]},
           {"title":"Systems Engineering", "state":'app.solutions.netCentricSolutions({Id: "systems-engineering" })',"image":"images/systemseng1.jpg", "icon":"fa-code", "content":[{"type":"text", "content":"DKW’s proven ability to deliver quality products, while also meeting budget and schedule requirements is what makes us the premier service provider in the industry. DKW’s comprehensive and accurate requirements management process ensures that systems with well-designed hardware and software features meet exactly what users want and need. Our experience is essential as we work closely with clients, partners, and end-users to clearly define user needs and system requirements, and we deliver value at each step in the process. DKW’s systems engineers integrate all engineering disciplines into an efficient, streamlined process that smoothly takes the project from concept to production to operation, in order to meet our customer’s business and technical goals." }]},
           {"title":"Disability Accommodations", "state":'app.solutions.netCentricSolutions({Id: "disability-accommodations" })',"image":"images/disability1.jpg", "icon":"fa-wheelchair-alt", "content":[{"type":"text", "content":"DKW is committed to providing equal employment opportunity to all job seekers. If you are an individual with a disability who is unable to use our online tools to search and or apply for jobs, please send an email to disability-accommodations@199.230.117.121/dkwcomm and indicate the specifics of the assistance you need, or please contact the Disability Accommodations Office at 202-355-7400. This option is reserved only for individuals who are unable to use the online tools due to a disability or medical issue. It is not intended for other purposes or inquiries."}]}
-        ]}
+        ]},
+        "Cyber|Security|and|Intelligence|Service":{"sectionTitle":"Cyber Security and Intelligence Service", "image":"images/cybersecurity.jpg", "icon":"fa-home", "state":'app.solutions.cyberSecurityAndIntelligence({Id:""})',
+          "content":[
+            {"type":"subtitle2", "content":"At a Glance"},
+            {"type":"list", "content":["Network-based malware detection for national organizations and cyber-security operation centers (CSOCs)", "Protects against advanced, unknown malware by going beyond signature-based intrusion detection mechanisms","High-end cyber security services that include training, consulting, and intelligence services","Cyber security experts with extensive background in management of CSOCs and training government organizations"]},
+
+            {"type":"subtitle2", "content":"The Evolving Cyber Threat Landscape"},
+            {"type":"text", "content":"A secure electronic communications infrastructure is vital to a nation’s security, stability, and economy. However, the growing frequency and sophistication of cyber attacks present significant challenges to nations worldwide. Among the thousands of cyber attacks occurring daily, the most severe threats are often the silent, multi-staged intrusions that are performed by determined and well-funded adversaries who are going after carefully chosen, high-profile targets. Many of these threats siphon confidential and sensitive information out of highly protected networks and ultimately undermine national security."},
+
+            {"type":"subtitle2", "content":"DKW’s Cyber Security Solutions"},
+            {"type":"text", "content":"DKW’s Cyber Security Solutions are designed to assist national level organizations and cyber security operation centers (CSOCs) in detecting and thwarting cyber attacks. Our portfolio includes DKW’s Network Security Solutions and additional secure Services."},
+            {"type":"text", "content":"DKW’s Network Security Solutions feature a rich product portfolio designed to help national organizations and CSOCs detect and thwart cyber attacks."},
+            {"type":"text", "content":"DKW’s flagship solution is our Advanced Detection System (ADS), which provides superior malware detection of signature-less threats by leveraging innovative, machine learning, and behavioral algorithms."},
+            {"type":"text", "content":"DKW’s Services include training, consulting, intelligence, forensic investigations, and on-site cyber emergency services."},
+
+            {"type":"subtitle2", "content":"Our Team"},
+            {"type":"text", "content":"DKW’s team is powered by cyber security professionals with decades of experience across the cyber domain. Our world-class Cyber Security team was strategically built with the best individuals in the cyber arena today that have hands-on experience building the architectures and infrastructures necessary to secure large, high-risk networks."},
+            {"type":"text", "content":"With vast prior experience in the formation of CSOCs for national organizations, our team is well acquainted with complex requirements and the formulation of cyber-defense strategies, policies, and standards."},
+
+            {"type":"subtitle2", "content":"Securing National Assets from Cyber Attacks"},
+            {"type":"text", "content":"The growing frequency and sophistication of cyber attacks present significant challenges to nations worldwide. DKW’s portfolio is designed to help government, military, and law enforcement agencies protect critical national assets from these increasingly persistent cyber threats. Our portfolio features an array of Network Security, as well as additional secure Services."},
+
+            {"type":"subtitle2", "content":"DKW’s Network Security"},
+            {"type":"text", "content":"DKW’s Network Security portfolio provides superior malware detection capabilities for high-speed networks, including national backbones, and it is built on over a decade of DKW’s experience with implementing large network monitoring projects for government organizations worldwide."},
+            {"type":"text", "content":"DKW’s flagship solution, Advanced Detection System (ADS), provides superior malware detection of signature-less threats by leveraging innovative, machine learning, behavioral algorithms. By automatically sorting through tens of thousands of network sessions, this innovative cyber security solution identifies the command-and-control (C&C) channels of Advanced Persistent Threats (APTs) and provides the actionable intelligence needed to investigate and contain these threats."},
+
+            {"type":"subtitle2", "content":"DKW’s Services"},
+            {"type":"text", "content":"DKW’s Cyber Security Consulting Services, offer expert assistance for:"},
+            {"type":"list", "content":["Designing a cyber security architecture for national assets","Establishing cyber security operations centers (CSOCs)","Evaluating potential cyber threats and relevant mitigation strategies","Developing strategic national cyber security policies, procedures, and organizational structures"]},
+            {"type":"text", "content":"DKW’s cyber security training services feature a broad range of tailored training sessions for cyber incident responders, analysts, forensics experts, and other cyber professionals, as well as a national cyber strategy overview seminar for executives."},
+            {"type":"text", "content":"DKW’s on-site cyber emergency services help organizations contain and mitigate cyber attacks in progress. These services include expert cyber forensic analysis of high-profile attacks, such as Advanced Persistent Threats (APTs), malware source code analysis, malware behavioral analysis, digital forensics, and network forensics."},
+            {"type":"text", "content":"DKW’s cyber intelligence services help organizations develop a holistic cyber intelligence picture from a range of sources, including cyber threat-related Web content, Web platforms, and more. This intelligence helps organizations understand the motives and capabilities of potential cyber adversaries."},
+
+            {"type":"subtitle1", "content":"DKW’s Advanced Detection System (ADS)"},
+            {"type":"text", "content":"Last line of defense for your critical assets"},
+
+            {"type":"subtitle2", "content":"At a Glance"},
+            {"type":"list", "content":["Identify advanced, unknown malware","Go beyond signature-based intrusion detection","Detect threats hiding in the network","Leverage nonintrusive, network-based security","Overcome malicious traffic crafting and encryption"]},
+            {"type":"text", "content":"DKW’s Advanced Detection System (ADS) is a scalable, high-performance network-security solution that provides superior malware detection for national organizations and cyber security operation centers (CSOCs) worldwide."},
+
+            {"type":"subtitle2", "content":"Network Security for Targeted Cyber Attacks"},
+            {"type":"text", "content":"DKW’s ADS is a behavioral-analysis platform for detecting advanced, unknown malware through the real-time analysis of network traffic. By automatically sorting through tens of thousands of network sessions, this innovative cyber security solution identifies the command-and-control (C&C) channels of Advanced Persistent Threats (APTs) and provides the actionable intelligence needed to investigate and contain these threats. By leveraging advanced machine-learning algorithms and behavioral-analysis methodologies, our ADS platform identifies new threats that have no recorded signatures or patterns and therefore cannot be detected by most cyber security mechanisms."},
+
+            {"type":"subtitle2", "content":"Attacking the Achilles’ Heel of Malware"},
+            {"type":"text", "content":"DKW’s ADS takes advantage of the main Achilles’ heel of any APT: its C&C channels. The system monitors volumes of ingress and egress traffic and constantly extracts hundreds of indicators describing IP communication flows. Subsequently, machine-learning algorithms are applied to the indicators to separate the advanced malware from the general traffic and to group the instances of malware into families. DKW’s ADS carries out these processes continuously on all network traffic and compares the indicators with those of malware behavioral profiles, which is generated from the combined intelligence gathered from thousands of known malware families."},
+
+            {"type":"subtitle1", "content":"DKW’s Cyber Consulting Services"},
+            {"type":"text", "content":"For defending national assets from cyber threats"},
+
+            {"type":"subtitle2", "content":"At a Glance"},
+            {"type":"text", "content":"World-class cyber security consulting services for:"},
+            {"type":"list", "content":["Designing the cyber security architecture for national assets","Establishing cyber security operations centers (CSOCs)","Evaluating potential cyber-threats and relevant mitigation strategies","Developing strategic national cyber security policies, procedures, and organizational structures","Delivered by a committed team of technologists and cyber security experts with years of experience in the cyber domain"]},
+
+            {"type":"subtitle2", "content":"Professional Cyber Security Consulting Services"},
+            {"type":"text", "content":"The growing frequency and sophistication of cyber-attacks present significant challenges to nations worldwide. DKW has established Cyber Security Consulting Services that are designed to help organizations defend national assets against cyber-attack. Our broad Consulting Services portfolio covers:"},
+            {"type":"text", "content":"Cyber Security Architecture for Critical Assets. Our consultants review your security infrastructure and help you develop a safe, resilient, and sustainable cyberspace for your critical assets."},
+            {"type":"text", "content":"Establish Cyber Security Operations Centers (CSOCs). We help you develop the operational, technical, and methodological foundations for establishing situational awareness, real-time threat analysis, incident response, and cyber intelligence research."},
+            {"type":"text", "content":"Cyber Threat Assessment. We provide expert evaluation of potential cyber attack scenarios and mitigation strategies. This assessment includes a top-down review, from strategy and business processes to IT and security infrastructures."},
+            {"type":"text", "content":"Cyber Capacity Building. We help you develop strategic national cyber security policies, procedures, and organizational structures to help safeguard vital assets and information systems."}
+          ],
+          "items":[
+            {"title":"Compliance and C&A", "state":'app.solutions.cyberSecurityAndIntelligence({Id: "compliance-and-ca" })',"image":"images/serviceDesk1.jpg", "icon":"fa-cubes", "content":[{"type":"text", "content":""}]},
+            {"title":"COOP/Disaster Recovery", "state":'app.solutions.cyberSecurityAndIntelligence({Id: "coopdisaster-recovery" })',"image":"images/serviceDesk1.jpg", "icon":"fa-fire-extinguisher", "content":[{"type":"text", "content":""}]},
+            {"title":"Identity Access Management", "state":'app.solutions.cyberSecurityAndIntelligence({Id: "identity-access-management" })',"image":"images/serviceDesk1.jpg", "icon":"fa-id-card-o", "content":[{"type":"text", "content":""}]},
+            {"title":"Information Assurance", "state":'app.solutions.cyberSecurityAndIntelligence({Id: "information-assurance" })',"image":"images/serviceDesk1.jpg", "icon":"fa-info", "content":[{"type":"text", "content":""}]}
+          ]
+        },
+        "Management|Consulting":{"sectionTitle":"Management Consulting", "image":"images/management.jpg", "icon":"fa-home", "state":'app.solutions.managementConsulting({Id:""})',
+          "content":[
+            {"type":"text", "content":"Your mission success is our priority. For more than a decade, our customers have relied on DKW’s professional and quick response capabilities."},
+            {"type":"text", "content":"Whether analyzing and reengineering current business processes or assisting you in meeting ever-changing regulations and standards, DKW partners with you to ensure mission success."}
+          ],
+          "items":[
+            {"title":"Acquisition Support", "state":'app.solutions.managementConsulting({Id: "acquisition-support" })',"image":"images/serviceDesk1.jpg", "icon":"fa-puzzle-piece", "content":[{"type":"text", "content":""}]},
+            {"title":"Business Process Reengineering", "state":'app.solutions.managementConsulting({Id: "business-process-reengineering" })',"image":"images/serviceDesk1.jpg", "icon":"fa-briefcase", "content":[{"type":"text", "content":""}]},
+            {"title":"Change Management", "state":'app.solutions.managementConsulting({Id: "change-management" })',"image":"images/serviceDesk1.jpg", "icon":"fa-window-restore", "content":[{"type":"text", "content":""}]},
+            {"title":"Electronic Records Management", "state":'app.solutions.managementConsulting({Id: "electronic-records-management" })',"image":"images/serviceDesk1.jpg", "icon":"fa-table", "content":[{"type":"text", "content":""}]},
+            {"title":"Human Resources", "state":'app.solutions.managementConsulting({Id: "human-resources" })',"image":"images/serviceDesk1.jpg", "icon":"fa-users", "content":[{"type":"text", "content":""}]},
+            {"title":"Information Management", "state":'app.solutions.managementConsulting({Id: "information-management" })',"image":"images/serviceDesk1.jpg", "icon":"fa-info-circle", "content":[{"type":"text", "content":""}]},
+            {"title":"Knowledge Management", "state":'app.solutions.managementConsulting({Id: "knowledge-management" })',"image":"images/serviceDesk1.jpg", "icon":"fa-book", "content":[{"type":"text", "content":""}]},
+            {"title":"Program Management", "state":'app.solutions.managementConsulting({Id: "program-management" })',"image":"images/serviceDesk1.jpg", "icon":"fa-tasks", "content":[{"type":"text", "content":""}]}
+          ]
+        }
       };
 
     // News Data

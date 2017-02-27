@@ -55,7 +55,7 @@ components.component('dkwHeader', {
 					name:'Application Development',
 					state:'app.solutions.netCentricSolutions({Id: "application-development" })',
 					params: {"Id": "application-development" }
-				
+
 				},
 				{
 					name:'Operations and Maintenance',
@@ -112,6 +112,7 @@ components.component('dkwHeader', {
 				{
 					name:'Alliant Small Business Governmentwide Acquisition Contract (GWAC)',
 					state:'app'
+
 				},
 				{
 					name:'8(a) STARS II Governmentwide Acquisition Contract (GWAC)',
@@ -158,19 +159,23 @@ components.component('dkwHeader', {
 			sections: [
 				{
 					name:'Compliance and C&A',
-					state:'app'
+					state:'app.solutions.cyberSecurityAndIntelligence({Id: "" })',
+					params:{Id: "" }
 				},
 				{
 					name:'COOP/Disaster Recovery',
-					state:'app'
+					state:'app.solutions.cyberSecurityAndIntelligence({Id: "" })',
+					params:{Id: "" }
 				},
 				{
 					name:'Identity Access Management',
-					state:'app'
+					state:'app.solutions.cyberSecurityAndIntelligence({Id: "" })',
+					params:{Id: "" }
 				},
 				{
 					name:'Information Assurance',
-					state:'app'
+					state:'app.solutions.cyberSecurityAndIntelligence({Id: "" })',
+					params:{Id: "" }
 				}
 			]
 		};
@@ -181,31 +186,43 @@ components.component('dkwHeader', {
 			sections: [
 				{
 					name:'Acquisition Support',
-					state:'app'
+					state:'app.solutions.managementConsulting({Id: "acquisition-support" })',
+					params:{Id: "acquisition-support" }
 				},
 				{
 					name:'Business Process Reengineering',
-					state:'app'
+					state:'app.solutions.managementConsulting({Id: "business-process-reengineering" })',
+					params:{Id: "business-process-reengineering" }
 				},
 				{
 					name:'Change Management',
-					state:'app'
+					state:'app.solutions.managementConsulting({Id: "change-management" })',
+					params:{Id: "change-management" }
 				},
 				{
-					name:'IElectronic Records Management',
-					state:'app'
+					name:'Electronic Records Management',
+					state:'app.solutions.managementConsulting({Id: "electronic-records-management" })',
+					params:{Id: "electronic-records-management" }
 				},
 				{
 					name:'Human Resources',
-					state:'app'
+					state:'app.solutions.managementConsulting({Id: "human-resources" })',
+					params:{Id: "human-resources" }
 				},
 				{
 					name:'Information Management',
-					state:'app'
+					state:'app.solutions.managementConsulting({Id: "information-management" })',
+					params:{Id: "information-management" }
+				},
+				{
+					name:"Knowledge Management",
+					state:'app.solutions.managementConsulting({Id: "knowledge-management" })',
+					params:{Id: "knowledge-management" }
 				},
 				{
 					name:"Program Management",
-					state:'app'
+					state:'app.solutions.managementConsulting({Id: "program-management" })',
+					params:{Id: "program-management" }
 				}
 			]
 		}
