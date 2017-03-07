@@ -16,7 +16,7 @@ components.component('dkwHeader', {
 			sections: [
 			{
 				name:'Company History',
-				state:'app'
+				state:'app.about.companyHistory'
 			},
 			{
 				name:'Message from the President',

@@ -21,6 +21,14 @@ dkwSite.config(['$stateProvider', '$urlRouterProvider','$locationProvider', func
           }
         }
       })
+      .state('app.about.companyHistory', {
+        url: "/company-history",
+        views: {
+          'content@': {
+            component: 'companyHistory'
+          }
+        }
+      })
       .state('app.solutions', {
         abstract: true,
         url: "our-solutions",
