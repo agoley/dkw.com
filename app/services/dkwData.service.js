@@ -1,7 +1,7 @@
 services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwData, $filter){
   return {
     all: function(){
-      var siteData = {"solutions":dkwData.dkwSolutions, "news": dkwData.dkwNews,"contractVehicles":dkwData.dkwContractVehicles};
+      var siteData = {"solutions":dkwData.dkwSolutions, "ourCompany":dkwData.ourCompany, "news": dkwData.dkwNews, "contractVehicles":dkwData.dkwContractVehicles};
       return siteData;
     },
     pages:{
@@ -13,6 +13,16 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
           solutionsPage = dkwData.dkwSolutions[searchTitle];
         }
         return solutionsPage;
+      },
+      ourCompany: function(title) {
+        var ourCompanyPage = null;
+        if(title != null){
+          var regex = /\s/g;
+          var searchTitle = title.replace(regex, "|");
+          ourCompanyPage = dkwData.ourCompany[searchTitle];
+        }
+        return ourCompanyPage;
+        
       }
     },
     search: {
@@ -140,6 +150,21 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
           ]
         }
       };
+
+    // About Data
+    data.ourCompany = {
+      "Company|History":{
+        "sectionTitle":"Company History",
+        "heroText":"OUR HISTORY OF SUCCESS",
+        "image":"images/history-hero.jpg", 
+        "state":"app.about.companyHistory",
+        "content":[{"type":"text", "value":"DKW has an exemplary history of industry recognition for our excellent performance in technical services as well as business management. Since our founding in 2001, we have delivered as a prime on contracts, subcontracts, and task orders and have provided a wide range of Information Security, Information Technology, and Enterprise Solutions for software and systems; Data Communications; Business Process Re-engineering; and Defense Messaging services for our customers in the DC metro area, across the U.S., and abroad."},
+           {"type":"text", "value":"We have consistently performed work above and beyond customers’ standards, meeting and exceeding customer expectations. We are committed to delivering the highest quality services and solutions on time and within budget, as attested by our embrace of CMMI, ITIL ISO, EVM, and PMBOK processes as our fundamental way of doing business."},
+           {"type":"list", "value":["2008 Inc. 5000 No.873/ ranked No.55 in the Top 100 Government Services Companies & Ranked No.69 in the Top 100 Business in Washington, Arlington, Alexandria","September 2008 Deloitte Technology Fast 50 Rank #12","Deloitte & Touche 2008 Rising Star Technology Award"]},
+           {"type":"list", "value":["Washington Technology Fast 50, October 2006 at #2", "MEA Magazine’s Award for Small Business Person of the Year, November 2006", "MEA Magazine’s Award for 100 Fastest Growing Minority Firms, November 2006"]},
+           {"type":"list", "value":["2005 Deloitte technology Fast 500 North America Rising Star", "2005 Deloitte Technology Fast 50 Rising Star for Maryland", "Fifty Influential Minorities in Business by Minority Business and Professional Network (6/04)", "Business Person of the Year for Montgomery County by Omega PSI PHI Fraternity (11/03)"]}]
+      }
+    };
 
     // News Data
     data.dkwNews = [

@@ -1,3 +1,24 @@
-<div class="page-container">
-    <h3>Company History</h3>
+<div class="about-container">
+    <md-toolbar md-scroll-shrink class="md-hue-2 sub-theme">
+     <div class="md-toolbar-tools bold">
+  		    <h2>{{$ctrl.page.sectionTitle}}</h2>
+  	  </div>
+  </md-toolbar>
+  <svg id="svg"></svg>
+    <div class="history-hero" back-img="{{$ctrl.page.image}}">
+        <h4 class="md-display-3">{{$ctrl.page.heroText}}</h4>
+    </div>
+    <div class="pad-top-bottom">
+        <h4 class="dark-text left-half md-headline  event">{{$ctrl.page.content[0].value}}</h4>
+        <h4 class="dark-text right-half md-headline event">{{$ctrl.content[1].value}}</h4>
+    </div>
+    <div class="slanted-reverse">
+        <h4 class="light-text right-half md-headline event" ng-repeat="event in $ctrl.page.content[2].value">{{event}}</h4>
+        <h4 class="light-text left-half md-headline event" ng-repeat="event in $ctrl.page.content[3].value">{{event}}</h4>
+    </div>
+    <div class="pad-top-bottom">
+        <div class="event" ng-repeat="event in $ctrl.page.content[4].value">
+            <h4 class="dark-text left-half md-headline">{{event}}</h4>
+        </div>
+    </div>
 </div>

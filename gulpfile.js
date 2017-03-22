@@ -31,7 +31,8 @@ var config = {
       'app/assets/libs/angular-messages/angular-messages.min.js',
       'app/assets/libs/angular-ui-router/release/angular-ui-router.min.js',
       'app/assets/libs/angular-bootstrap/ui-bootstrap.min.js',
-      'app/assets/libs/angular-bootstrap/ui-bootstrap-tpls.js'
+      'app/assets/libs/angular-bootstrap/ui-bootstrap-tpls.js',
+      'app/assets/libs/Snap.svg/dist/snap.svg-min.js'
     ],
     libsCSS: [
       'app/assets/libs/angular-material/angular-material.min.css',
