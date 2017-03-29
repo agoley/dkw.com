@@ -1,29 +1,27 @@
-// Express server for DKW Communications Demo 
+// Express server for DKW Communications
+
+// modules =================================================
 var express = require('express');
 var app = express();
+var path = require('path');
 
-app.all('*', function(req, res, next) {
-	res.header('Access-Control-Allow-Origin', req.headers.origin );
-	res.header('Access-Control-Allow-Credentials', true);
-    res.header('Access-Control-Allow-Methods', 'OPTIONS,GET,POST,PUT,DELETE');
-    res.header('Access-Control-Allow-Headers', 
-    	'Content-Type, Authorization, Content-Length, X-Requested-With');
-    if (req.method === 'OPTIONS'){
-        res.send(200);
-    } else {
-		next();
-	}
+// configuration ===========================================
+
+// set the static files location
+app.use(express.static(__dirname + '/public')); 
+
+// set our port
+var port = process.env.PORT || 3000; 
+
+// routes ==================================================
+
+// route to handle all AngularJS requests
+app.get('*', function(req, res) {
+    res.sendFile('index.html',
+        { root: path.join(__dirname, './public/views') });
 });
 
-app.engine('.html', require('ejs').__express);
-app.use(express.static('./public'));
-app.set('views', __dirname + '/public/views');
-app.set('view engine', 'html');
-
-app.get('/', function(req, res){
-	res.render('index');
-});
-
-app.listen(process.env.PORT || 3000, function () {
-   console.log('DEMO TIME!');
+// start app ===============================================
+app.listen(port, function () {
+    console.log('dkw.com is running at localhost:' + port);
 });
