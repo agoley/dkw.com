@@ -8,6 +8,7 @@
 /*Font*/
 @font-size: 16px;
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 /*Theme Color*/
 @main-background: #eceff1;
@@ -82,17 +83,31 @@ html, body {
 .overlay {
 	opacity: 0.5;
 }
-
+.scroll-instruction {
+  position: absolute;
+  display: inline-block;
+  color: rgba(255,255,255,1);
+  bottom: 20px;
+  right: 1%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: -webkit-linear-gradient(to left, rgba(58, 123, 213,0.5) , rgba(58, 96, 115,0.5)); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, rgba(58, 123, 213,0.5) , rgba(58, 96, 115,0.5)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  .scroll-text { font-size: 14px; text-transform: capitalize; position: absolute; top: 15px; width: 100%;}
+  i { font-size: 50px; position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%);}
+}
 .social-links {
   position: fixed;
   top: 50%;
   left: 0;
   width: 50px;
   z-index: 9999;
-  //transform: translateY(-50%);
-  //-ms-transform: translateY(-50%);
-  //-webkit-transform: translateY(-50%);
-  //animation: flipInY 2s;
+
   @media @mobile-screen {
     top:initial;
     bottom: 0;
