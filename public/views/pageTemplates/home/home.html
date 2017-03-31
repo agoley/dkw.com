@@ -14,32 +14,32 @@
                <div class="caption-text">{{slide.text}}</div>
             </div>
          </uib-slide>
-      </uib-carousel>      
+      </uib-carousel>
       <scroll-movement></scroll-movement>
    </section>
    <!--Solutions-->
    <section class="dkw-solutions">
       <div class="selected-solution" >
          <div class="solutions-title">Our Solutions</div>
-         <div class="selected-container" ng-animate-swap="$ctrl.selectedSolution">
-            <div class="selected-content" >
-               <div class="selected-title">{{$ctrl.selectedSolution.title}}</div>
-               <div class="selected-text">{{$ctrl.selectedSolution.content | limitTo: 250}}...</div>
-               <md-button class="md-raised" ui-sref="{{$ctrl.selectedSolution.state}}">
-						Learn More <i class="fa fa-info-circle"></i>
-					</md-button>
-            </div>
-            <img class="selected-img" ng-src="{{$ctrl.selectedSolution.image}}">
+         <div class="selected-container2" ng-animate-swap="$ctrl.selectedSolution">
+           <div class="selected-content" >
+              <div class="selected-title">{{$ctrl.selectedSolution.title}}</div>
+              <div class="selected-text">{{$ctrl.selectedSolution.content | limitTo: 250}}...</div>
+
+              <div class="selected-btn" ui-sref="{{$ctrl.selectedSolution.state}}"><span>Learn More</span> <i class="fa fa-info-circle"></i></div>
+           </div>
+
+           <div class="img-container"><img class="selected-img" ng-src="{{$ctrl.selectedSolution.image}}"></div>
          </div>
       </div>
-      <div class="all-solutions">
+
+      <div class="all-solutions2">
          <div class="solutions-container">
             <div class="solution-item" ng-repeat="item in $ctrl.solutions" ng-class="{'active': $ctrl.isSelected(item)}" ng-click="$ctrl.changeSelected(item)">
-               <div class="selected-point" ng-if="$ctrl.isSelected(item)"></div>
                <div class="item-title">{{item.title}}</div>
             </div>
          </div>
-         <div class="mobile-directions"><i class="fa fa-chevron-left"></i> <span>SCROLL</span> <i class="fa fa-chevron-right"></i></div>
+       <div class="mobile-directions"><i class="fa fa-chevron-left"></i> <span>SCROLL</span> <i class="fa fa-chevron-right"></i></div>
       </div>
    </section>
    <!-- Spacer Image -->
@@ -151,18 +151,48 @@
      <div class="parallax-cover"></div>
      <div class="parallax-main" back-img="{{$ctrl.image2}}"></div>
    </section>
-   <!--Key Clients-->
-   <section class="dkw-key-clients">
-      <div class="section-title">Key Clients & Certifications</div>
-      <div class="clients-section">
-        <i class="fa fa-angle-left" aria-hidden="true" ng-click="$ctrl.clientCtrl('left')" ng-class="{inactive: $ctrl.checkCtrlActive('left')}"></i>
-        <div class="client-container">
-           <a ng-href="{{item.url}}" class="client-item" ng-repeat="item in $ctrl.keyClients" target="_blank">
-             <img ng-src="{{item.image}}" />
+
+   <!-- Key Clients 2 -->
+   <section class="dkw-keys clients">
+     <div class="section-title">Key Clients</div>
+     <div class="clients-section">
+       <div class="key-container">
+         <div class="key-ctrl ctrl-left" ng-click="$ctrl.clientCtrl('left' ,'client')" ng-class="{inactive: $ctrl.checkCtrlActive('left','client')}"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+       </div>
+       <div class="client-container client-key">
+         <div class="card-container" ng-repeat="item in $ctrl.keyClients">
+           <a ng-href="{{item.url}}" class="client-item" target="_blank">
+             <div class="card-top"><img ng-src="{{item.image}}" /></div>
+             <div class="card-bottom">{{item.title}}</div>
            </a>
-        </div>
-        <i class="fa fa-angle-right" aria-hidden="true" ng-click="$ctrl.clientCtrl('right')" ng-class="{inactive: $ctrl.checkCtrlActive('right')}"></i>
-      </div>
-      <div class="mobile-directions"><i class="fa fa-chevron-left"></i> <span>SCROLL</span> <i class="fa fa-chevron-right"></i></div>
+         </div>
+       </div>
+       <div class="key-container">
+         <div class="key-ctrl ctrl-right" ng-click="$ctrl.clientCtrl('right','client')" ng-class="{inactive: $ctrl.checkCtrlActive('right','client')}"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+       </div>
+     </div>
+     <div class="mobile-directions"><i class="fa fa-chevron-left"></i> <span>SCROLL</span> <i class="fa fa-chevron-right"></i></div>
+   </section>
+
+   <!-- Key Certifications 2 -->
+   <section class="dkw-keys certifications">
+     <div class="section-title">Key Certifications</div>
+     <div class="clients-section">
+       <div class="key-container">
+         <div class="key-ctrl ctrl-left" ng-click="$ctrl.clientCtrl('left','certifications')" ng-class="{inactive: $ctrl.checkCtrlActive('left','certifications')}"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+       </div>
+       <div class="client-container certifications-key">
+         <div class="card-container" ng-repeat="item in $ctrl.keyCertifications">
+           <a ng-href="{{item.url}}" class="client-item" target="_blank">
+             <div class="card-top"><img ng-src="{{item.image}}" /></div>
+             <div class="card-bottom">{{item.title}}</div>
+           </a>
+         </div>
+       </div>
+       <div class="key-container">
+         <div class="key-ctrl ctrl-right" ng-click="$ctrl.clientCtrl('right','certifications')" ng-class="{inactive: $ctrl.checkCtrlActive('right','certifications')}"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+       </div>
+     </div>
+     <div class="mobile-directions"><i class="fa fa-chevron-left"></i> <span>SCROLL</span> <i class="fa fa-chevron-right"></i></div>
    </section>
 </div>

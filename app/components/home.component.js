@@ -11,7 +11,6 @@ components.component('home', {
         {"id":0, "type":"img", "image":"images/carousel/washington-dc7.jpg", "title":"Industry, Innovation, Influence", "text":""},
         {"id":1, "type":"img", "image":"images/carousel/washington-dc2.jpg", "title":"Over a Decade of Experience", "text":"Focusing on enterprise solutions and services for more than 70 Federal Government customers"},
         {"id":2, "type":"img", "image":"images/carousel/washington-dc1.jpg", "title":"The DKW Commitment", "text":"Our Center of Excellence (COEs) ensure that our customers receive the superior knowledge and expertise needed to rapidly launch applications without sacrificing quality"},
-        //{"id":3, "type":"img", "image":"images/carousel/washington-dc3.jpg", "title":"Our Distinction", "text":"What distinguishes DKW is the call to public service that our people bring to the job, We are motivated to perform at a high level"},
         {"id":3, "type":"video", "location":"images/carousel/washington-dc-vid3.mov", "image":"images/carousel/washington-dc-vid2-still.jpg", "title":"Our Distinction", "text":"What distinguishes DKW is the call to public service that our people bring to the job, We are motivated to perform at a high level"},
       ];
       // Auto play video
@@ -38,27 +37,29 @@ components.component('home', {
 
       ctrl.selectedSolution = ctrl.solutions[0];
 
-      ctrl.image1 = "images/software1.jpg";
+      ctrl.image1 = "images/pageImages/business2.jpg";
       ctrl.image2 = "images/businessMeeting.jpg";
 
 
       ctrl.keyClients = [
         {"id":0, "title":"Defense Information Systems Agency","image":"images/keyClients/image001.jpg","url":"http://www.disa.mil/"},
-        {"id":1, "title":"Capability Maturity Model Integration","image":"images/keyClients/image01.jpg","url":""},
-        {"id":2, "title":"The U.S. Department of the Treasury","image":"images/keyClients/image003.png","url":"https://www.treasury.gov/Pages/default.aspx"},
-        {"id":3, "title":"The U.S. Department of Homeland Security","image":"images/keyClients/image005.jpg","url":"https://www.dhs.gov/"},
-        {"id":4, "title":"","image":"images/keyClients/image007.jpg","url":""},
-        {"id":5, "title":"","image":"images/keyClients/image009.jpg","url":""},
-        {"id":6, "title":"","image":"images/keyClients/image011.jpg","url":""},
-        {"id":7, "title":"","image":"images/keyClients/image013.jpg","url":""},
-        {"id":8, "title":"","image":"images/keyClients/image015.jpg","url":""},
-        {"id":9, "title":"","image":"images/keyClients/image019.jpg","url":""},
-        {"id":10, "title":"","image":"images/keyClients/image021.jpg","url":""},
-        {"id":11, "title":"","image":"images/keyClients/image023.jpg","url":""},
-        {"id":12, "title":"","image":"images/keyClients/image025.jpg","url":""},
-        {"id":13, "title":"","image":"images/keyClients/image027.jpg","url":""},
-        {"id":14, "title":"","image":"images/keyClients/image031.jpg","url":""},
-        {"id":15, "title":"","image":"images/keyClients/image033.jpg","url":""}
+        {"id":1, "title":"The U.S. Department of the Treasury","image":"images/keyClients/image003.png","url":"https://www.treasury.gov/Pages/default.aspx"},
+        {"id":2, "title":"The U.S. Department of Homeland Security","image":"images/keyClients/image005.jpg","url":"https://www.dhs.gov/"},
+        {"id":3, "title":"The U.S. DEPARTMENT OF AGRICULTURE","image":"images/keyClients/image007.png","url":"https://www.usda.gov/"},
+        {"id":4, "title":"United States Agency International Development","image":"images/keyClients/image009.jpg","url":"https://www.usaid.gov/"},
+        {"id":5, "title":"General Services Administration","image":"images/keyClients/image015.jpg","url":"https://www.gsa.gov/portal/category/100000"},
+        {"id":6, "title":"Small Business Administration","image":"images/keyClients/image021.png","url":"https://www.sba.gov/"},
+        {"id":7, "title":"Internal Revenue Service","image":"images/keyClients/image023.jpg","url":"https://www.irs.gov/"},
+        {"id":8, "title":"Seaport","image":"images/keyClients/image025.png","url":"http://www.seaport.navy.mil/"},
+        {"id":9, "title":"Space and Naval Warfare System Command","image":"images/keyClients/image027.png","url":"http://www.public.navy.mil/spawar/Pages/default.aspx"},
+        {"id":10, "title":"U.S. Department of Housing and Urban Development","image":"images/keyClients/image031.jpg","url":"https://portal.hud.gov/hudportal/HUD"},
+        {"id":11, "title":"Federal Housing Finance Agency","image":"images/keyClients/image033.jpg","url":"https://www.fhfa.gov/"}
+      ];
+      ctrl.keyCertifications = [
+        {"id":0, "title":"Capability Maturity Model Integration","image":"images/keyClients/image01.jpg","url":""},
+        {"id":1, "title":"EAGLE II","image":"images/keyClients/image011.jpg","url":"https://www.dhs.gov/eagle-ii"},
+        {"id":2, "title":"GSA Alliant","image":"images/keyClients/image019.jpg","url":"https://www.gsa.gov/portal/content/104793"},
+        {"id":3, "title":"eFast","image":"images/keyClients/image013.png","url":"https://www.faa.gov/about/office_org/headquarters_offices/afn/offices/acquisitions/efast/"}
       ];
 
 
@@ -96,22 +97,24 @@ components.component('home', {
 			ctrl.minStory = true;
 		}
     /* Key Clients*/
-    ctrl.clientCtrl = function(direction) {
+    ctrl.clientCtrl = function(direction, keyid) {
+      var className = '.'+keyid+'-key';
       if(direction == "left"){
         // Move Left to Right
-        $('.client-container').animate({ scrollLeft: "-=200px"}, "slow");
+        $(className).animate({ scrollLeft: "-=200px"}, "slow");
       }
       else if(direction == "right"){
         // Move Right to Left
-        $('.client-container').animate({ scrollLeft: "+=200px"}, "slow");
+        $(className).animate({ scrollLeft: "+=200px"}, "slow");
       }
     }
-    ctrl.checkCtrlActive = function(direction){
+    ctrl.checkCtrlActive = function(direction, keyid){
+      var className = '.'+keyid+'-key';
       if(direction == "left"){
-        return ($('.client-container')[0].scrollLeft == 0);
+        return ($(className)[0].scrollLeft == 0);
       }
       else if(direction == "right"){
-        return (($('.client-container')[0].scrollLeft * 2) > $('.client-container')[0].scrollWidth);
+        return ( (($(className)[0].scrollLeft * 2) > $(className)[0].scrollWidth) || ($(className)[0].scrollWidth <= $(className)[0].offsetWidth));
       }
     }
    },
