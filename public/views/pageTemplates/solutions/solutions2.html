@@ -11,13 +11,15 @@
 
     <div class="content-section">
       <div class="content-container">
-        <div class="selected-items {{content.type}}" ng-repeat="content in $ctrl.selectedItem.content" ng-class="{'spacer':content.spacer == true}" ng-animate-swap="$ctrl.selectedItem">
+        <div class="selected-items {{content.type}}" ng-repeat="content in $ctrl.selectedItem.content" ng-class="{'spacer':content.spacer == true, 'sub-title':content.title != undefined}" ng-animate-swap="$ctrl.selectedItem">
           <!-- Initial Icon -->
           <div class="initial-icon" ng-if="$index == 0">
             <div class="icon-container"><i class="fa {{$ctrl.selectedItem.icon}}" aria-hidden="true"></i></div>
           </div>
           <!--Sub Title 1 -->
+          <div class="sub-title1" ng-if="content.title != undefined">{{content.title}}</div>
           <!--Sub Title 2 -->
+          <div class="sub-title2" ng-if="content.subtitle != undefined">{{content.subtitle}}</div>
           <!--Text Content -->
           <div class="text-content" ng-if="content.type == 'text'">{{content.content}}</div>
           <!-- List -->
@@ -28,6 +30,7 @@
             </div>
           </div>
           <!--PDF File -->
+          <div class="pdf-file-content" ng-if="content.type == 'pdf-file'"><a href="{{content.content.location}}" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>{{content.content.title}}</span></a></div>
         </div>
       </div>
     </div>

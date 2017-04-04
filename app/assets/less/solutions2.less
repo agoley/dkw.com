@@ -40,6 +40,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            margin-bottom: 30px;
             .icon-container {
               display: inline-block;
               font-size: 2rem;
@@ -58,7 +59,20 @@
               &:after { left: 100%; margin-left: 15px;}
             }
           }
-
+          .sub-title2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: @theme-color;
+            border-bottom: 2px solid @theme-color;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+          }
+          .sub-title1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+          }
+          &.pdf-file { background-color: rgba(173, 12, 12,1);  a{ color: rgba(255,255,255,1); font-size: 2rem; }}
+          &.sub-title { background-color: @theme-color; color: rgba(255,255,255,1);}
           &.text { }
           &.list {
             .list-content {
