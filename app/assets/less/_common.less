@@ -33,6 +33,10 @@
 
 @theme-section-background: rgba(230,230,230,0.8);
 /*Mixin*/
+.theme-gradient() {
+  background: -webkit-linear-gradient(to left, rgba(58, 123, 213,1) , rgba(58, 96, 115,1)); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, rgba(58, 123, 213,1) , rgba(58, 96, 115,1)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 .theme-gradient-fade() {
   background: -webkit-linear-gradient(to left, rgba(58, 123, 213,0.5) , rgba(58, 96, 115,0.5)); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, rgba(58, 123, 213,0.5) , rgba(58, 96, 115,0.5)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */

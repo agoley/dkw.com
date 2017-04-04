@@ -1205,7 +1205,7 @@ components.component('solutions', {
         } else {
           object = ctrl.pageInfo.items[resultIndex];
           // scroll to object
-          var objectWidth = ($('.nav-item')[0].offsetWidth * resultIndex);
+          /*var objectWidth = ($('.nav-item')[0].offsetWidth * resultIndex);
           $('.nav-items-container').animate({ scrollLeft: "+="+objectWidth+"px"}, 300);
 
           if(resultIndex < (ctrl.pageInfo.items.length - 1) && resultIndex > 0){
@@ -1218,7 +1218,7 @@ components.component('solutions', {
           else if(resultIndex >= (ctrl.pageInfo.items.length - 1)){
             ctrl.showLeft = true;
             ctrl.showRight = false;
-          }
+          }*/
         }
         ctrl.selectedItem = object;
       }
@@ -1247,7 +1247,7 @@ components.component('solutions', {
             ctrl.showRight = false;
           }
         }
-      
+
         var tst =0;
       }
 
@@ -1264,7 +1264,7 @@ components.component('solutions', {
       }
 
    },
-   templateUrl: 'views/pageTemplates/solutions/solutions.html'
+   templateUrl: 'views/pageTemplates/solutions/solutions2.html'
 });
 
 directives.directive('backImg', ['$window', function($window) {
@@ -1406,7 +1406,7 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
           ourCompanyPage = dkwData.ourCompany[searchTitle];
         }
         return ourCompanyPage;
-        
+
       }
     },
     search: {
@@ -1435,7 +1435,10 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
           {"type":"list", "content":["Since 2006, DKW has supported SPAWAR Atlantic in the application of sound software development, software engineering, and programming support, based our end-customers’ System Development Lifecycle (SDLC). Our team of software architects, engineers, developers, quality assurance testers, and technical writers have applied engineering, security, and scientific disciplines for a variety of financial management, medical, administrative, and logistics management applications, developing these applications using the classic waterfall or Agile development approach as best fit the client’s requirements.","DKW has been a significant contributor to the transformation of the Public Health Information System (PHIS), a critical USDA system used to protect our Nation’s food sources. This complex system consists of 800 database tables and 5.8 million lines of code."]},
           {"type":"text", "spacer":true, "content":"Since 2010, DKW has been providing CMMI DEV L3-appraised Information Technology Services (ITS) and Software Maintenance Support (SMS) for the PHIS application, which is a comprehensive, data-driven inspection system comprised of multiple applications that was developed to collect, mine and analyze inspection, surveillance and investigative data; predict hazards and vulnerabilities; communicate or report analysis results; and target resources to prevent or mitigate the risk of food borne illness and threats to the nation’s food supply. DKW has been the key enabler for USDA in implementing required enhancements to FSIS through waterfall, agile, and hybrid software development methodologies, and we have transitioned 11 USDA legacy systems in the process."},
           {"type":"text","content":"DKW has worked closely with FSIS as it implemented a phased approach to the continual development and maintenance of PHIS to ensure that FSIS employees and other users of PHIS could accomplish their primary objectives without interruption of business operations. This phased approach sought to stabilize, optimize, and then transform PHIS."},
-          {"type":"list","content":["DKW is prime contractor in support of the Global Information Grid (GIG) Technical Guidance Federation (GTG-F), which is a suite of software applications on the NIPRNet and SIPRNet that provide technical guidance across the DISA Enterprise to achieve net-ready, interoperable, and supportable GIG systems. The GTG-F assists program managers, portfolio managers, engineers, and others in answering two questions critical to any IT or National Security Systems (NSS): (1) Where does the IT or NSS fit, as both a provider and consumer, into the GIG with regard to End-to-End technical performance, access to data and services, and interoperability?; and (2) What must an IT system or NSS do to ensure technical interoperability with the GIG? Several of the GIG Technical Guidance business processes have joined together as a single Web destination that has provided several advantages to our clients, such as ease of use, reduced hosting costs, and increasing data availability to the DoD community. DKW architects, designs, develops, implements, and provides maintenance for the GTG Federated Tools Suite. It is the authoritative source for ISP assessment data, GTPs with implementation guidance, and compliance. The GTG Federated Tools Suite program is a key enabler of the ongoing DISA-led IT enterprise transformation.","DKW modernized the Navy Fleet’s Sensitive Compartmented Information (SCI) Network Operations Center (NOC), which was formerly an antiquated network with an overly complex footprint that was difficult to manage. DKW analyzed the system architecture, the CONOPS, and the security environment to identify which areas needed to be improved and which vulnerabilities needed to be addressed. DKW discovered that the hardware and software were in some cases at end-of-life, a situation which the Navy deemed an unacceptable level of risk."]},
+
+          {"type":"list","content":["DKW is prime contractor in support of the Global Information Grid (GIG) Technical Guidance Federation (GTG-F), which is a suite of software applications on the NIPRNet and SIPRNet that provide technical guidance across the DISA Enterprise to achieve net-ready, interoperable, and supportable GIG systems.", "The GTG-F assists program managers, portfolio managers, engineers, and others in answering two questions critical to any IT or National Security Systems (NSS): (1) Where does the IT or NSS fit, as both a provider and consumer, into the GIG with regard to End-to-End technical performance, access to data and services, and interoperability?; and (2) What must an IT system or NSS do to ensure technical interoperability with the GIG?", "Several of the GIG Technical Guidance business processes have joined together as a single Web destination that has provided several advantages to our clients, such as ease of use, reduced hosting costs, and increasing data availability to the DoD community.","DKW architects, designs, develops, implements, and provides maintenance for the GTG Federated Tools Suite. It is the authoritative source for ISP assessment data, GTPs with implementation guidance, and compliance. The GTG Federated Tools Suite program is a key enabler of the ongoing DISA-led IT enterprise transformation."]},
+
+          {"type":"text","content":"DKW modernized the Navy Fleet’s Sensitive Compartmented Information (SCI) Network Operations Center (NOC), which was formerly an antiquated network with an overly complex footprint that was difficult to manage. DKW analyzed the system architecture, the CONOPS, and the security environment to identify which areas needed to be improved and which vulnerabilities needed to be addressed. DKW discovered that the hardware and software were in some cases at end-of-life, a situation which the Navy deemed an unacceptable level of risk."},
           {"type":"text","content":"DKW provided the Fleet SCI NOC with solutions that mitigated the risks, including replacement of older Cisco routers and Catalyst switches with upgraded components, reducing the overall footprint and complexity and increasing overall efficiency as well as virtualizing the hardware using VMware."}
         ],
         "items":[
@@ -1540,7 +1543,7 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
       "Company|History":{
         "sectionTitle":"Company History",
         "heroText":"OUR HISTORY OF SUCCESS",
-        "image":"images/history-hero.jpg", 
+        "image":"images/history-hero.jpg",
         "state":"app.about.companyHistory",
         "content":[{"type":"text", "value":"DKW has an exemplary history of industry recognition for our excellent performance in technical services as well as business management. Since our founding in 2001, we have delivered as a prime on contracts, subcontracts, and task orders and have provided a wide range of Information Security, Information Technology, and Enterprise Solutions for software and systems; Data Communications; Business Process Re-engineering; and Defense Messaging services for our customers in the DC metro area, across the U.S., and abroad."},
            {"type":"text", "value":"We have consistently performed work above and beyond customers’ standards, meeting and exceeding customer expectations. We are committed to delivering the highest quality services and solutions on time and within budget, as attested by our embrace of CMMI, ITIL ISO, EVM, and PMBOK processes as our fundamental way of doing business."},

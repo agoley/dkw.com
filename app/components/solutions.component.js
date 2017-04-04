@@ -40,7 +40,7 @@ components.component('solutions', {
         } else {
           object = ctrl.pageInfo.items[resultIndex];
           // scroll to object
-          var objectWidth = ($('.nav-item')[0].offsetWidth * resultIndex);
+          /*var objectWidth = ($('.nav-item')[0].offsetWidth * resultIndex);
           $('.nav-items-container').animate({ scrollLeft: "+="+objectWidth+"px"}, 300);
 
           if(resultIndex < (ctrl.pageInfo.items.length - 1) && resultIndex > 0){
@@ -53,7 +53,7 @@ components.component('solutions', {
           else if(resultIndex >= (ctrl.pageInfo.items.length - 1)){
             ctrl.showLeft = true;
             ctrl.showRight = false;
-          }
+          }*/
         }
         ctrl.selectedItem = object;
       }
@@ -82,7 +82,7 @@ components.component('solutions', {
             ctrl.showRight = false;
           }
         }
-      
+
         var tst =0;
       }
 
@@ -99,5 +99,5 @@ components.component('solutions', {
       }
 
    },
-   templateUrl: 'views/pageTemplates/solutions/solutions.html'
+   templateUrl: 'views/pageTemplates/solutions/solutions2.html'
 });

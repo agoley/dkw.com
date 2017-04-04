@@ -1,0 +1,36 @@
+<div class="page-container">
+  <div class="dkw-solutions-section2">
+    <!-- Page Header-->
+    <md-toolbar md-scroll-shrink class="md-hue-2 sub-theme">
+       <div class="md-toolbar-tools bold"><h2>{{$ctrl.pageTitle}}</h2></div>
+    </md-toolbar>
+    <!-- Page Image -->
+    <div class="solution-hero" back-img="{{$ctrl.selectedItem.image}}">
+        <h4 class="md-display-3">{{$ctrl.selectedItem.title}}</h4>
+    </div>
+
+    <div class="content-section">
+      <div class="content-container">
+        <div class="selected-items {{content.type}}" ng-repeat="content in $ctrl.selectedItem.content" ng-class="{'spacer':content.spacer == true}" ng-animate-swap="$ctrl.selectedItem">
+          <!-- Initial Icon -->
+          <div class="initial-icon" ng-if="$index == 0">
+            <div class="icon-container"><i class="fa {{$ctrl.selectedItem.icon}}" aria-hidden="true"></i></div>
+          </div>
+          <!--Sub Title 1 -->
+          <!--Sub Title 2 -->
+          <!--Text Content -->
+          <div class="text-content" ng-if="content.type == 'text'">{{content.content}}</div>
+          <!-- List -->
+          <div class="list-content" ng-if="content.type == 'list'">
+            <div class="list-element" ng-repeat="list in content.content">
+              <div class="element-bullet"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
+              <div class="element-content">{{list}}</div>
+            </div>
+          </div>
+          <!--PDF File -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
