@@ -32,7 +32,7 @@ components.component('solutions', {
       }
 
       ctrl.getItem = function(searchId){
-        var resultIndex = ctrl.pageInfo.items.findIndex(e => e.title.toLowerCase().replace(/[&\/]/gi, '') == searchId.toLowerCase());
+        var resultIndex = ctrl.pageInfo.items.findIndex(e => e.title.replace(/[&\/]/gi, '').toLowerCase() == searchId.toLowerCase());
 
         var object = null;
         if (resultIndex < 0) {

@@ -64,8 +64,8 @@ components.component('dkwHeader', {
 				},
 				{
 					name:'IV&V',
-					state:'app.solutions.netCentricSolutions({Id: "iv&v" })',
-					params: {"Id": "iv&v" }
+					state:'app.solutions.netCentricSolutions({Id: "ivv" })',
+					params: {"Id": "ivv" }
 				},
 				{
 					name:'Service Desk',
