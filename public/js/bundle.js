@@ -108,6 +108,14 @@ dkwSite.config(['$stateProvider', '$urlRouterProvider','$locationProvider', func
           }
         }
       })
+      .state('app.qualityManagement', {
+        url: "quality-management/:Id",
+        views: {
+          'content@': {
+            component: 'qualityManagement'
+          }
+        }
+      })
       .state('app.search', {
         url: "search/:searchquery",
         views: {
@@ -571,7 +579,7 @@ components.component('dkwHeader', {
 				submenu: "ourSolutionsMenu"
 			},
 			{name:'Quality Managment',
-				state:'app'},
+				state:'app.qualityManagement({Id: "" })'},
 			{
 				name:'Contract Vehicles',
 				type: 'submenu',
@@ -892,6 +900,46 @@ components.component('messageFromPresident', {
    templateUrl: 'views/pageTemplates/about/message-from-the-president.html'
 });
 
+// Services component for DKW Site
+components.component('qualityManagement', {
+   bindings: {},
+	controller: function ($scope, $stateParams, $sce, $state, dkwDataMonitor) {
+      var ctrl = this;
+
+      /* Variables */
+      var currState = $state.current.name;
+      ctrl.pageTitle = "Quality Management";
+      ctrl.pageInfo = dkwDataMonitor.pages.qualityManagement("Quality|Management");
+
+      /*Functions*/
+      ctrl.getItem = function(searchId){
+        var resultIndex = ctrl.pageInfo.items.findIndex(e => e.title.replace(/[^a-zA-Z0-9\s]/gi, '').toLowerCase() == searchId.toLowerCase());
+
+        var object = null;
+        if (resultIndex < 0) {
+          // not found
+        } else {
+          object = ctrl.pageInfo.items[resultIndex];
+        }
+        ctrl.selectedItem = object;
+      }
+
+      // Set Page Information
+      var paramID = $stateParams.Id;
+      if(paramID != undefined && paramID != ""){
+        ctrl.Id = paramID.replace(/-/gi, ' ');
+        ctrl.getItem(ctrl.Id);
+      }
+      else {
+        ctrl.selectedItem = ctrl.pageInfo;
+        ctrl.selectedItem.title = ctrl.pageInfo.sectionTitle;
+        ctrl.selectedItem.isHome = true;
+      }
+
+   },
+   templateUrl: 'views/pageTemplates/qualityManagement/qualityManagement.html'
+});
+
 // footer component for DKWSite
 components.component('search', {
    bindings: {},
@@ -1166,7 +1214,7 @@ components.component('search', {
 // Services component for DKW Site
 components.component('solutions', {
    bindings: {},
-	controller: function ($scope, $stateParams, $sce, $state, dkwDataMonitor) {
+	controller: function ($scope, $stateParams, $sce, $state, dkwDataMonitor, $timeout) {
       var ctrl = this;
 
       /* Variables */
@@ -1248,7 +1296,6 @@ components.component('solutions', {
           }
         }
 
-        var tst =0;
       }
 
       // Set Page Information
@@ -1262,6 +1309,14 @@ components.component('solutions', {
         ctrl.selectedItem.title = ctrl.pageInfo.sectionTitle;
         ctrl.selectedItem.isHome = true;
       }
+
+      // get screen size
+      $timeout(function () {
+        //Here your view content is fully loaded !!
+        var pageHeight = angular.element(".content-section")[0].offsetHeight;
+        var arrSize = Math.ceil((pageHeight - 2300)/ 1600);
+        ctrl.spacerMax = (pageHeight > 3000 ? new Array(arrSize-1) : 0);
+      }, 1000);
 
    },
    templateUrl: 'views/pageTemplates/solutions/solutions2.html'
@@ -1398,6 +1453,9 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
         }
         return solutionsPage;
       },
+      qualityManagement: function(sectionTitle){
+        return dkwData.qualityManagement[sectionTitle];
+      },
       ourCompany: function(title) {
         var ourCompanyPage = null;
         if(title != null){
@@ -1522,7 +1580,51 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
           ]
         }
       };
+    // Quality Management
+    data.qualityManagement = {
+      "Quality|Management":{
+        "sectionTitle":"Quality Management",
+        "image":"images/pageImages/dc-streets.jpg",
+        "state":"app.qualityManagement",
+        "content":[
+          {"type":"text", "value":"DKW emphasizes quality from start to finish. We begin with in-depth contract-level planning and integrate the knowledge and skills we acquire into contract deliverables. Our approach focuses on objective and consistent inter- and intra-team communications, allowing our team to continuously adapt to evolving customer requirements, while still guaranteeing a quality outcome."},
+          {"type":"text", "value":"Our experience with dozens of successful engagements tells us that by empowering our project managers, team leaders, and individual team members to execute corrective action, as appropriate, our deliverables will achieve or exceed customer expectations. Since our processes are assessed at CMMI Level 3 and founded on the Six Sigma concept of DMAIC (Define, Measure, Analyze, Improve, and Control), we are able to make precise measurements, identify exact problems, and provide measureable success."},
+          {"type":"subtitle", "value":"Certifications"},
+          {"type":"text", "value":"At DKW, we strive for excellence in all aspects of business and believe that both continuing educational and professional certifications help us to better meet our clients’ needs."},
+          {"type":"list", "value":["IT Infrastructure Library (ITIL) –all services contracts, at a minimum, are certified at the Foundation level.","Project Management Professional (PMP) – DKW’s project managers are PMP-certified."]},
+          {"type":"text", "value":"DKW’s system of processes, guidelines, tools, and techniques consistently facilitate the value-added to both our customers and our overall team success. We are constantly working toward additional certifications (e.g., ISO 9001:2008, ISO 9001: 27000, IEEE, and EVM)."},
+          {"type":"subtitle", "value":"Corporate Certification"},
+          {"type":"list", "value":["CMMI Level 2 Certified","Facilities Clearance","100% Certified Personnel (PMP, ITIL, MCSE, Contracts Admin, Accounting, Oracle, Scrum Masters, and Scrum Product Owners)","U.S. Department of State, SIO IRM","U.S. Department of State, Bureau of Consular Affairs","U.S. Department of Homeland Security, ICE/ Army S3 Contract","DKW Communications- Mentor Protégé","U.S. Department of State","Zolon Tech Inc.","Creative Information Technology Inc.","CSC","All Native, Inc.","Dane, LLC","Data Network Corporation (DNC)","Centric Methods","SAIC"]},
+          {"type":"imgList","value":[
+            {"name":"ITIL","location":"images/quality-certifications/ITILlogo.jpg","state":'app.qualityManagement({Id: "itil-the-it-infrastructure-library" })'},
+            {"name":"IEEE","location":"images/quality-certifications/IEEElogo.jpg","state":'app.qualityManagement({Id: "ieee" })'},
+            {"name":"CISSP","location":"images/quality-certifications/CISSPlogo.jpg","state":'app.qualityManagement({Id: "certified-information-systems-security-professional-cissp" })'},
+            {"name":"QAI","location":"images/quality-certifications/QAIlogo.jpg","state":'app.qualityManagement({Id: "the-quality-assurance-institutes-qai" })'},
+            {"name":"EVM","location":"images/quality-certifications/EVMlogo.jpg","state":'app.qualityManagement({Id: "earned-value-management" })'},
+            {"name":"PMI","location":"images/quality-certifications/PMIlogo.jpg","state":'app.qualityManagement({Id: "the-project-management-institute" })'},
+            {"name":"CMMI","location":"images/quality-certifications/cmmi_logo.jpg","state":'app.qualityManagement({Id: "capability-maturity-model-integration" })'},
+            {"name":"ISO","location":"images/quality-certifications/ISOlogo.jpg","state":'app.qualityManagement({Id: "iso-9000" })'}
+          ]}
+        ],
+        "items":[
+          {"title":"ITIL (the IT Infrastructure Library)","state":'app.qualityManagement({Id: "itil-the-it-infrastructure-library" })', "image":"images/quality-certifications/ITILlogo.jpg","content":[{"type":"text", "value":"At DKW, we are proud of our long-standing commitment to quality in the services we provide and in the processes we use to deliver those services. We strive for excellence in all aspects of business and believe that both continuing education and professional certifications help us to better meet our clients’ needs. ITIL (the IT Infrastructure Library) is just one of the certifications that our company and employees are working hard to achieve in order to provide the highest quality service and support to our customers."}, {"type":"text", "value":"ITIL is a series of documents that are used to aid the implementation of a lifecycle framework for IT Service Management. This customizable framework defines how Service Management is applied within an organization. ITIL is organized into a series of five volumes: Service Strategy, Service Design, Service Transition, Service Operation, and Continual Service Improvement. These volumes describe a closed loop feedback system that provides feedback throughout all areas of the lifecycle. The volumes maintain a framework of best practice disciplines that enable IT Services to be provided efficiently. DKW embraces ITIL fundamentals as yet another avenue to deliver service excellence. A number of DKW professionals are currently pursuing ITIL certification."}]},
 
+          {"title":"IEEE","state":'app.qualityManagement({Id: "ieee" })', "image":"images/quality-certifications/IEEElogo.jpg","content":[{"type":"text", "value":"At DKW, we are proud of our long-standing commitment to quality in the services we provide and in the processes we use to deliver those services. We strive for excellence in all aspects of business and believe that both continuing education and professional certifications help us to better meet our clients’ needs. IEEE is one of the certifications that our company and employees are working hard to achieve in order to provide the highest quality service and support to our customers."}, {"type":"text", "value":"IEEE is the world’s leading professional association for the advancement of technology. Through its global membership, IEEE is a foremost authority on areas ranging from computers and telecommunications to aerospace systems, electric power, and consumer electronics. The IEEE is a top developer of international standards that support many of today’s information technology, telecommunications, and power generation products and services. DKW adheres to IEEE standards and is active in promoting those standards through client engagements in the markets that we serve."}]},
+
+          {"title":"Certified Information Systems Security Professional (CISSP)","state":'app.qualityManagement({Id: "certified-information-systems-security-professional-cissp" })', "image":"images/quality-certifications/CISSPlogo.jpg","content":[{"type":"text", "value":"At DKW, we are proud of our long-standing commitment to quality in the services we provide and in the processes we use to deliver those services. We strive for excellence in all aspects of business and believe that both continuing education and professional certifications help us to better meet our clients’ needs. The Certified Information Systems Security Professional (CISSP) is one of the certifications our company and employees are working hard to achieve in order to provide the highest quality service and support to our customers."}, {"type":"text", "value":"As the first credential accredited by ANSI to ISO Standard 17024:2003 in the field of information security, the CISSP certification provides information security professionals with not only an objective gauge of proficiency but a globally recognized standard of achievement. Several DKW team members are CISSP certified."}]},
+
+          {"title":"The Quality Assurance Institute's (QAI)","state":'app.qualityManagement({Id: "the-quality-assurance-institutes-qai" })', "image":"images/quality-certifications/QAIlogo.jpg","content":[{"type":"text", "value":"At DKW, we are proud of our long-standing commitment to quality in the services we provide and in the processes we use to deliver those services. We strive for excellence in all aspects of business and believe that both continuing education and professional certifications help us to better meet our clients’ needs. The Quality Assurance Institute (QAI) is one of the certifications our company and employees are working hard to achieve in order to provide the highest quality service and support to our customers."}, {"type":"text", "value":"The QAI’s founding objective was and remains to provide leadership in improving quality, productivity, and effective solutions for process management in the information services profession. It is a global membership organization serving over 1000 corporate members, which structured to share state-of-the-art methods, tools, and techniques. DKW is currently sponsoring several of our team members in their pursuit of QAI certification."}]},
+
+          {"title":"Earned Value Management","state":'app.qualityManagement({Id: "earned-value-management" })', "image":"images/quality-certifications/EVMlogo.jpg","content":[{"type":"text", "value":"At DKW, we are proud of our long-standing commitment to quality in the services we provide and in the processes we use to deliver those services. We strive for excellence in all aspects of business and believe that both continuing education and professional certifications help us to better meet our clients’ needs."}, {"type":"text", "value":"The Earned Value Management (EVM) guidelines incorporate best business practices for earned value management systems (EVMS) that have proven to provide strong benefits for program or enterprise planning and control. EVM puts a dollar value the status of your project and shows you your project’s health at a glance. DKW’s EVMS has been certified by a Federal government agency for compliance with the National Defense Industrial Association’s (ANSI/EIA 748) standards."}]},
+
+          {"title":"The Project Management Institute","state":'app.qualityManagement({Id: "the-project-management-institute" })', "image":"images/quality-certifications/PMIlogo.jpg","content":[{"type":"text", "value":"At DKW, we are proud of our long-standing commitment to quality in the services we provide and in the processes we use to deliver those services. We strive for excellence in all aspects of business and believe that both continuing education and professional certifications help us to better meet our clients’ needs."}, {"type":"text", "value":"The Project Management Institute (PMI) is the leading membership association for project management professionals. PMI is dynamically engaged in advocacy for the profession; it sets professional standards, conducts research, and provides access to an abundance of valuable information and resources. In addition, PMI advocates career and professional development and offers certification, networking, and community involvement opportunities. DKW sponsors certification training and testing for our PMs. Currently over 75% of DKW project leaders and managers are PMP certified."}]},
+
+          {"title":"Capability Maturity Model Integration","state":'app.qualityManagement({Id: "capability-maturity-model-integration" })', "image":"images/quality-certifications/cmmi_logo.jpg","content":[{"type":"text", "value":"At DKW, we are proud of our long-standing commitment to quality in the services we provide and in the processes we use to deliver those services. We strive for excellence in all aspects of business and believe that both continuing education and professional certifications help us to better meet our clients’ needs. The Capability Maturity Model Integration (CMMI) is one of the certifications our company and employees are working hard to achieve in order to provide the highest quality service and support to our customers."}, {"type":"text", "value":"CMMI is a process improvement approach that provides organizations with the essential elements of effective processes. It is the de facto global standard for technology integration/development efforts and can be used to guide process improvement across a project, a division, or an entire organization. CMMI helps integrate traditionally separate organizational functions, set process improvement goals and priorities, provide guidance for quality processes, and provide a point of reference for appraising current processes. DKW was externally assessed at CMMI Level 3."}]},
+
+          {"title":"ISO 9000","state":'app.qualityManagement({Id: "iso-9000" })', "image":"images/quality-certifications/ISOlogo.jpg","content":[{"type":"text", "value":"At DKW, we are proud of our long-standing commitment to quality in the services we provide and in the processes we use to deliver those services. We strive for excellence in all aspects of business and believe that both continuing education and professional certifications help us to better meet our clients’ needs. ISO 9000 is one of the certifications our company and employees are working hard to achieve in order to provide the highest quality service and support to our customers."}, {"type":"text", "value":"ISO 9000 is part of a family of internationally recognized standards for quality management systems. The ISO standard provides a framework for organizations to coordinate and manage their quality activities and to gain independent acknowledgment for their quality initiatives. DKW integrates ISO practices into our quality processes, and we are pursuing ISO certification at the organizational level."}]}
+        ]
+      }
+    };
     // About Data
     data.ourCompany = {
       "Company|History":{

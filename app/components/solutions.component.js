@@ -1,7 +1,7 @@
 // Services component for DKW Site
 components.component('solutions', {
    bindings: {},
-	controller: function ($scope, $stateParams, $sce, $state, dkwDataMonitor) {
+	controller: function ($scope, $stateParams, $sce, $state, dkwDataMonitor, $timeout) {
       var ctrl = this;
 
       /* Variables */
@@ -83,7 +83,6 @@ components.component('solutions', {
           }
         }
 
-        var tst =0;
       }
 
       // Set Page Information
@@ -97,6 +96,14 @@ components.component('solutions', {
         ctrl.selectedItem.title = ctrl.pageInfo.sectionTitle;
         ctrl.selectedItem.isHome = true;
       }
+
+      // get screen size
+      $timeout(function () {
+        //Here your view content is fully loaded !!
+        var pageHeight = angular.element(".content-section")[0].offsetHeight;
+        var arrSize = Math.ceil((pageHeight - 2300)/ 1600);
+        ctrl.spacerMax = (pageHeight > 3000 ? new Array(arrSize-1) : 0);
+      }, 1000);
 
    },
    templateUrl: 'views/pageTemplates/solutions/solutions2.html'

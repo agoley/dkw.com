@@ -58,6 +58,14 @@ dkwSite.config(['$stateProvider', '$urlRouterProvider','$locationProvider', func
           }
         }
       })
+      .state('app.qualityManagement', {
+        url: "quality-management/:Id",
+        views: {
+          'content@': {
+            component: 'qualityManagement'
+          }
+        }
+      })
       .state('app.search', {
         url: "search/:searchquery",
         views: {

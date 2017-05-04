@@ -10,6 +10,7 @@
     </div>
 
     <div class="content-section">
+      <!-- center content -->
       <div class="content-container">
         <div class="selected-items {{content.type}}" ng-repeat="content in $ctrl.selectedItem.content" ng-class="{'spacer':content.spacer == true, 'sub-title':content.title != undefined}" ng-animate-swap="$ctrl.selectedItem">
           <!-- Initial Icon -->
@@ -32,6 +33,20 @@
           <!--PDF File -->
           <div class="pdf-file-content" ng-if="content.type == 'pdf-file'"><a href="{{content.content.location}}" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> <span>{{content.content.title}}</span></a></div>
         </div>
+      </div>
+
+      <!-- background obj -->
+      <div class="back-design" ng-if="$ctrl.selectedItem.content.length > 2">
+        <div class="pad-top-bottom"></div>
+        <div class="slanted-reverse"></div>
+        <div class="pad-top-bottom"></div>
+
+        <!--content > 9 -->
+        <div class="extra-spacers" ng-if="$ctrl.selectedItem.content.length > 9" ng-repeat="i in $ctrl.spacerMax track by $index">
+          <div class="slanted-reverse"></div>
+          <div class="pad-top-bottom"></div>
+        </div>
+
       </div>
     </div>
 
