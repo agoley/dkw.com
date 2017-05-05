@@ -10,6 +10,36 @@
     </div>
 
     <!-- content section -->
+    <div class="content-section">
 
+      <div class="content-area" ng-repeat="item in $ctrl.selectedItem.wrappedContent" ng-class="{'pad-top-bottom': $even, 'slanted-reverse':$odd}">
+        <div class="content-container">
+          <div class="content-item" ng-repeat="obj in item">
+
+            <div class="item-subtitle" ng-if="obj.type == 'subtitle'">{{obj.value}}</div>
+            <div class="item-text" ng-if="obj.type == 'text'">{{obj.value}}</div>
+            <div class="item-list" ng-if="obj.type == 'list'">
+              <div class="list-element" ng-repeat="list in obj.value">
+                <div class="element-bullet"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
+                <div class="element-text"><span>{{list}}<span></div>
+              </div>
+            </div>
+            <div class="item-list-imgs" ng-if="obj.type == 'imgList'">
+              <!-- items -->
+              <div class="img-card" ng-repeat="img in obj.value" ng-click="$ctrl.switchItem(img.nameId)">
+                <div class="card-container" ng-class="{'selected':$ctrl.isSelected(img)}">
+                  <img ng-src="{{img.location}}">
+                </div>
+              </div>
+              <!-- text -->
+              <div class="img-text">
+                <div class="text-area" ng-repeat="txt in $ctrl.selectedCert.content">{{txt.value}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>

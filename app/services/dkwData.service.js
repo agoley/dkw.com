@@ -156,15 +156,16 @@ services.service("dkwDataMonitor", ['dkwData', '$filter',function DemoInfo(dkwDa
           {"type":"text", "value":"DKW’s system of processes, guidelines, tools, and techniques consistently facilitate the value-added to both our customers and our overall team success. We are constantly working toward additional certifications (e.g., ISO 9001:2008, ISO 9001: 27000, IEEE, and EVM)."},
           {"type":"subtitle", "value":"Corporate Certification"},
           {"type":"list", "value":["CMMI Level 2 Certified","Facilities Clearance","100% Certified Personnel (PMP, ITIL, MCSE, Contracts Admin, Accounting, Oracle, Scrum Masters, and Scrum Product Owners)","U.S. Department of State, SIO IRM","U.S. Department of State, Bureau of Consular Affairs","U.S. Department of Homeland Security, ICE/ Army S3 Contract","DKW Communications- Mentor Protégé","U.S. Department of State","Zolon Tech Inc.","Creative Information Technology Inc.","CSC","All Native, Inc.","Dane, LLC","Data Network Corporation (DNC)","Centric Methods","SAIC"]},
+          {"type":"subtitle", "value":"Certification Details"},
           {"type":"imgList","value":[
-            {"name":"ITIL","location":"images/quality-certifications/ITILlogo.jpg","state":'app.qualityManagement({Id: "itil-the-it-infrastructure-library" })'},
-            {"name":"IEEE","location":"images/quality-certifications/IEEElogo.jpg","state":'app.qualityManagement({Id: "ieee" })'},
-            {"name":"CISSP","location":"images/quality-certifications/CISSPlogo.jpg","state":'app.qualityManagement({Id: "certified-information-systems-security-professional-cissp" })'},
-            {"name":"QAI","location":"images/quality-certifications/QAIlogo.jpg","state":'app.qualityManagement({Id: "the-quality-assurance-institutes-qai" })'},
-            {"name":"EVM","location":"images/quality-certifications/EVMlogo.jpg","state":'app.qualityManagement({Id: "earned-value-management" })'},
-            {"name":"PMI","location":"images/quality-certifications/PMIlogo.jpg","state":'app.qualityManagement({Id: "the-project-management-institute" })'},
-            {"name":"CMMI","location":"images/quality-certifications/cmmi_logo.jpg","state":'app.qualityManagement({Id: "capability-maturity-model-integration" })'},
-            {"name":"ISO","location":"images/quality-certifications/ISOlogo.jpg","state":'app.qualityManagement({Id: "iso-9000" })'}
+            {"name":"ITIL","location":"images/quality-certifications/ITILlogo.jpg","state":'app.qualityManagement({Id: "itil-the-it-infrastructure-library" })', "nameId":"itil-the-it-infrastructure-library"},
+            {"name":"IEEE","location":"images/quality-certifications/IEEElogo.jpg","state":'app.qualityManagement({Id: "ieee" })', "nameId":"ieee"},
+            {"name":"CISSP","location":"images/quality-certifications/CISSPlogo.jpg","state":'app.qualityManagement({Id: "certified-information-systems-security-professional-cissp" })', "nameId":"certified-information-systems-security-professional-cissp"},
+            {"name":"QAI","location":"images/quality-certifications/QAIlogo.jpg","state":'app.qualityManagement({Id: "the-quality-assurance-institutes-qai" })', "nameId":"the-quality-assurance-institutes-qai"},
+            {"name":"EVM","location":"images/quality-certifications/EVMlogo.jpg","state":'app.qualityManagement({Id: "earned-value-management" })', "nameId":"earned-value-management"},
+            {"name":"PMI","location":"images/quality-certifications/PMIlogo.jpg","state":'app.qualityManagement({Id: "the-project-management-institute" })', "nameId":"the-project-management-institute"},
+            {"name":"CMMI","location":"images/quality-certifications/cmmi_logo.jpg","state":'app.qualityManagement({Id: "capability-maturity-model-integration" })', "nameId":"capability-maturity-model-integration"},
+            {"name":"ISO","location":"images/quality-certifications/ISOlogo.jpg","state":'app.qualityManagement({Id: "iso-9000" })', "nameId":"iso-9000"}
           ]}
         ],
         "items":[

@@ -315,7 +315,7 @@
             height: 250px;
             display: inline-block;
             .client-item {
-              border-radius: 2px;
+              border-radius: 10px;
               height: 100%;
               display: block;
               overflow: hidden;
@@ -326,7 +326,15 @@
               .card-top {
                 padding: 5px;
                 overflow: hidden;
-                img { width: 100%; }
+                height: 100%;
+                position: relative;
+                img {
+                  width: 70%;
+                  position: absolute;
+                  left: 50%;
+                  top: 40%;
+                  transform: translate(-50%, -50%);
+                }
               }
               .card-bottom {
                 background: @theme-fade-color;
