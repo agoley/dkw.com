@@ -42,6 +42,7 @@
                 padding: 15px 0px;
                 @media @mobile-screen {
                   width: 100%;
+                  &+.list-element { margin-top: 20px; }
                 }
                 .element-bullet {
                   position: relative;
@@ -67,45 +68,48 @@
               }
             }
             .item-list-imgs {
-              display: flex;
-              flex-wrap: wrap;
-              @media @mobile-screen { display: block; overflow-x: auto; overflow-y: hidden;  white-space:nowrap; flex-wrap: nowrap;}
-              .img-card {
-                width: 12.5%;
-                padding: 10px;
-                height: 150px;
-                @media @mobile-screen { min-width: 100px; }
-                .card-container {
-                  border-radius: 10px;
-                  height: 100%;
-                  overflow: hidden;
-                  background: rgba(255,255,255,1);
-                  position: relative;
-                  transition: 0.5s all ease-in-out;
-                  cursor: pointer;
-
-                  img {
-                    width: 70%;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                  }
-
-                  &.selected {
+              .img-card-container {
+                display: flex;
+                flex-wrap: wrap;
+                @media @mobile-screen { display: block; overflow-x: auto; overflow-y: hidden;  white-space:nowrap; flex-wrap: nowrap;}
+                .img-card {
+                  width: 12.5%;
+                  padding: 10px;
+                  height: 150px;
+                  @media @mobile-screen { min-width: 100px; display: inline-block; height: 100px; }
+                  .card-container {
+                    border-radius: 10px;
+                    height: 100%;
+                    overflow: hidden;
+                    background: rgba(255,255,255,1);
                     position: relative;
-                    &:after {
-                      content: '';
+                    transition: 0.5s all ease-in-out;
+                    cursor: pointer;
+
+                    img {
+                      width: 70%;
                       position: absolute;
-                      background-color: rgba(50,50,50,1);
-                      top:0;
-                      left: 0;
-                      width: 100%;
-                      height: 100%;
-                      opacity: 0.5;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
                     }
+
+                    &.selected {
+                      position: relative;
+                      &:after {
+                        content: '';
+                        position: absolute;
+                        background-color: rgba(50,50,50,1);
+                        top:0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0.5;
+                        border-radius: 10px;
+                      }
+                    }
+                    &:hover:not(.selected) { transform: translate3d(0,-10px,0); cursor: pointer; box-shadow:0 10px 20px 0 rgba(17,21,23,.1); }
                   }
-                  &:hover { transform: translate3d(0,-10px,0); cursor: pointer; box-shadow:0 10px 20px 0 rgba(17,21,23,.1); }
                 }
               }
               .img-text {
@@ -116,12 +120,15 @@
                 margin: 10px;
                 border-radius: 6px;
                 box-shadow: inset 0 0 10px rgba(0,0,0,.5);
+                overflow: hidden;
+                @media @mobile-screen { padding: 5px; max-height: 300px; overflow-y: auto; display: block;}
                 .text-area {
                   font-size: 1.2rem;
                   line-height: 2rem;
                   width: 50%;
                   min-width: 50%;
                   padding: 10px;
+                  @media @mobile-screen { width: 100%; }
                 }
               }
             }

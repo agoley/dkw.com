@@ -26,9 +26,11 @@
             </div>
             <div class="item-list-imgs" ng-if="obj.type == 'imgList'">
               <!-- items -->
-              <div class="img-card" ng-repeat="img in obj.value" ng-click="$ctrl.switchItem(img.nameId)">
-                <div class="card-container" ng-class="{'selected':$ctrl.isSelected(img)}">
-                  <img ng-src="{{img.location}}">
+              <div class="img-card-container">
+                <div class="img-card" ng-repeat="img in obj.value" ng-click="$ctrl.switchItem(img.nameId)">
+                  <div class="card-container" ng-class="{'selected':$ctrl.isSelected(img)}">
+                    <img ng-src="{{img.location}}">
+                  </div>
                 </div>
               </div>
               <!-- text -->
